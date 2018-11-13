@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+    background-color: white;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    font-family: "Times New Roman", Times, serif;
+}
+
+p1 {
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+    color:midnightblue;
+    margin-left: 30px;
+}    
+p2 {
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+    color:gray;
+    margin-left: 50px;
+    margin-top: 100px;
+}   
+
+input[type=text1],select{
+    width: 100%;
+    padding: 8px 8px;
+    border-radius: 4px;
+    margin-bottom: 1px;
+}
+input[type=text2]{
+    width: 100%;
+    padding: 8px 8px;
+    border-radius: 4px;
+    height: 150px;
+    resize: none;
+    margin-bottom: 1px;
+}
+
+input[type=submit] {
+    width: 30%;
+    background-color:#101652;
+    color: white;
+    padding: 8px 8px;
+    margin-left: 70%;
+    margin-bottom:1% 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+input[type=submit]:hover {
+    background-color: #9fa6e6;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+#search {
+    width: 20%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 5px 5px 5px 5px;
+    float:right;
+}
+
+    </style>
+<title>Shipping</title>
+</head>
+<body>
+        <form>
+                <input type="text" id="search" placeholder="Search..">
+              </form>
+<h1>Shalala</h1>
+
+<p1><b>Shipping</b></p1>
+<br><br>
+<p2>Enter your Address</p2>
+<br><br>
+<table style="width:80%">
+        <tr>
+          <th><p2>Name</p2></th>
+          <th><input type="text1" name="Name" placeholder="Your Name..."><br></th> 
+        </tr>
+        <tr>
+                <th><p2>Address</p2></th>
+                <th><input type="text2" name="Address" placeholder="Your Address..."><br></th> 
+        </tr>
+        <tr>
+                <th><p2>Province</p2></th>
+                <th><select id="country" name="country">
+                    <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                    <option value="เชียงใหม่">เชียงใหม่</option>
+                    <option value="ภูเก็ต">ภูก็ต</option>
+                </select>
+                </th>
+        </tr>
+</table>
+      <input type="submit" value="Continue">
+</body>
+</html>
