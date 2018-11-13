@@ -20,6 +20,6 @@ public class HelloWorldController {
 
     @GetMapping("/")
     public String homePage() {
-        return "index";
+        return "ShalalaHomePage";
     }
 }

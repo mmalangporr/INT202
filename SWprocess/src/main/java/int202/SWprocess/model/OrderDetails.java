@@ -7,12 +7,9 @@ package int202.SWProcess.model;
 
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -29,10 +26,10 @@ public class OrderDetails extends SerializableSerializer {
     private long orderDetailsId;
 
     @NotBlank
-    private Orders orders;
+    private long orderId;
     
     @NotBlank
-    private Product products;
+    private long productId;
     
     private double quantity;
 
@@ -44,20 +41,20 @@ public class OrderDetails extends SerializableSerializer {
         this.orderDetailsId = orderDetailsId;
     }
 
-    public Orders getOrders() {
-        return orders;
+    public long getOrderId() {
+        return orderId;
     }
 
-    public void setOrders(Orders orders) {
-        this.orders = orders;
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
     }
 
-    public Product getProducts() {
-        return products;
+    public long getProductId() {
+        return productId;
     }
 
-    public void setProducts(Product products) {
-        this.products = products;
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
 
     public double getQuantity() {
@@ -70,8 +67,8 @@ public class OrderDetails extends SerializableSerializer {
 
     @Override
     public String toString() {
-        return "OrderDetails{" + "orderDetailsId=" + orderDetailsId + ", orders=" + orders + ", products=" + products + ", quantity=" + quantity + '}';
+        return "OrderDetails{" + "orderDetailsId=" + orderDetailsId + ", orderId=" + orderId + ", productId=" + productId + ", quantity=" + quantity + '}';
     }
-
+    
     
 }

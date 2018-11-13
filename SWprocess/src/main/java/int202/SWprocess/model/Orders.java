@@ -8,13 +8,9 @@ package int202.SWProcess.model;
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -40,13 +36,13 @@ public class Orders extends SerializableSerializer{
     private double totalPrice;
     
     @NotBlank
-    private Users users;
+    private long userId;
     
     @NotBlank
-    private Shipping shipping;
+    private long shippingId;
     
     @NotBlank
-    private OrderDetails orderDetails;
+    private long orderDetailsId;
 
     public long getOrderId() {
         return orderId;
@@ -80,29 +76,33 @@ public class Orders extends SerializableSerializer{
         this.totalPrice = totalPrice;
     }
 
-    public Users getUsers() {
-        return users;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public Shipping getShipping() {
-        return shipping;
+    public long getShippingId() {
+        return shippingId;
     }
 
-    public void setShipping(Shipping shipping) {
-        this.shipping = shipping;
+    public void setShippingId(long shippingId) {
+        this.shippingId = shippingId;
+    }
+
+    public long getOrderDetailsId() {
+        return orderDetailsId;
+    }
+
+    public void setOrderDetailsId(long orderDetailsId) {
+        this.orderDetailsId = orderDetailsId;
     }
 
     @Override
     public String toString() {
-        return "Orders{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", status=" + status + ", totalPrice=" + totalPrice + ", users=" + users + ", shipping=" + shipping + '}';
+        return "Orders{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", status=" + status + ", totalPrice=" + totalPrice + ", userId=" + userId + ", shippingId=" + shippingId + ", orderDetailsId=" + orderDetailsId + '}';
     }
-    
-    
 
-
-    
 }

@@ -7,12 +7,9 @@ package int202.SWProcess.model;
 
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -56,13 +53,13 @@ public class Users extends SerializableSerializer{
     private boolean loginStatus;
 
     @NotBlank
-    private Customers customers;
+    private long customerId;
     
     @NotBlank
-    private Seller seller;
+    private long sellerId;
     
     @NotBlank
-    private Admin admin;
+    private long adminId;
 
     public long getUserId() {
         return userId;
@@ -144,35 +141,34 @@ public class Users extends SerializableSerializer{
         this.loginStatus = loginStatus;
     }
 
-    public Customers getCustomers() {
-        return customers;
+    public long getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomers(Customers customers) {
-        this.customers = customers;
+    public void setCustomerId(long customerId) {
+        this.customerId = customerId;
     }
 
-    public Seller getSeller() {
-        return seller;
+    public long getSellerId() {
+        return sellerId;
     }
 
-    public void setSeller(Seller seller) {
-        this.seller = seller;
+    public void setSellerId(long sellerId) {
+        this.sellerId = sellerId;
     }
 
-    public Admin getAdmin() {
-        return admin;
+    public long getAdminId() {
+        return adminId;
     }
 
-    public void setAdmin(Admin admin) {
-        this.admin = admin;
+    public void setAdminId(long adminId) {
+        this.adminId = adminId;
     }
 
     @Override
     public String toString() {
-        return "Users{" + "userId=" + userId + ", fullName=" + fullName + ", userName=" + userName + ", email=" + email + ", password=" + password + ", address=" + address + ", phoneNumber=" + phoneNumber + ", roleOfUser=" + roleOfUser + ", image=" + image + ", loginStatus=" + loginStatus + ", customers=" + customers + ", seller=" + seller + ", admin=" + admin + '}';
+        return "Users{" + "userId=" + userId + ", fullName=" + fullName + ", userName=" + userName + ", email=" + email + ", password=" + password + ", address=" + address + ", phoneNumber=" + phoneNumber + ", roleOfUser=" + roleOfUser + ", image=" + image + ", loginStatus=" + loginStatus + ", customerId=" + customerId + ", sellerId=" + sellerId + ", adminId=" + adminId + '}';
     }
-    
-    
+
     
 }

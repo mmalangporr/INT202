@@ -6,15 +6,10 @@
 package int202.SWProcess.model;
 
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -34,7 +29,7 @@ public class Admin extends SerializableSerializer{
     private String adminName;
     
     @NotBlank
-    private Users users;
+    private long userId;
 
     public long getAdminId() {
         return adminId;
@@ -52,19 +47,20 @@ public class Admin extends SerializableSerializer{
         this.adminName = adminName;
     }
 
-    public Users getUsers() {
-        return users;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     @Override
     public String toString() {
-        return "Admin{" + "adminId=" + adminId + ", adminName=" + adminName + ", users=" + users + '}';
+        return "Admin{" + "adminId=" + adminId + ", adminName=" + adminName + ", userId=" + userId + '}';
     }
     
     
+
     
 }

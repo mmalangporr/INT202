@@ -6,15 +6,10 @@
 package int202.SWProcess.model;
 
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
-import javax.annotation.Generated;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -34,7 +29,7 @@ public class ProductType extends SerializableSerializer{
     private String productTypeName;
 
    @NotBlank
-   private Product product;
+   private long productId;
 
     public long getProductTypeId() {
         return productTypeId;
@@ -52,20 +47,18 @@ public class ProductType extends SerializableSerializer{
         this.productTypeName = productTypeName;
     }
 
-    public Product getProduct() {
-        return product;
+    public long getProductId() {
+        return productId;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
 
     @Override
     public String toString() {
-        return "ProductType{" + "productTypeId=" + productTypeId + ", productTypeName=" + productTypeName + ", product=" + product + '}';
+        return "ProductType{" + "productTypeId=" + productTypeId + ", productTypeName=" + productTypeName + ", productId=" + productId + '}';
     }
    
-   
-
    
 }

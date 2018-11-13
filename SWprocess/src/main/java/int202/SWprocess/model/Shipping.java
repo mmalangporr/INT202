@@ -8,12 +8,9 @@ package int202.SWProcess.model;
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -33,7 +30,7 @@ public class Shipping extends SerializableSerializer{
     private Date shippingDate;
     
     @NotBlank
-    private Orders orders;
+    private long orderId;
 
     public long getShippingId() {
         return shippingId;
@@ -51,17 +48,19 @@ public class Shipping extends SerializableSerializer{
         this.shippingDate = shippingDate;
     }
 
-    public Orders getOrders() {
-        return orders;
+    public long getOrderId() {
+        return orderId;
     }
 
-    public void setOrders(Orders orders) {
-        this.orders = orders;
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
     }
 
     @Override
     public String toString() {
-        return "Shipping{" + "shippingId=" + shippingId + ", shippingDate=" + shippingDate + ", orders=" + orders + '}';
+        return "Shipping{" + "shippingId=" + shippingId + ", shippingDate=" + shippingDate + ", orderId=" + orderId + '}';
     }
     
+    
+
 }
