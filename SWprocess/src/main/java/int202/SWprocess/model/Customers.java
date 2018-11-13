@@ -32,7 +32,7 @@ public class Customers extends SerializableSerializer{
     private String shoppingInfo;
         
     @NotBlank
-    private Users users;
+    private long userId;
 
     public long getCustomerId() {
         return customerId;
@@ -58,19 +58,17 @@ public class Customers extends SerializableSerializer{
         this.shoppingInfo = shoppingInfo;
     }
 
-    public Users getUsers() {
-        return users;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     @Override
     public String toString() {
-        return "Customers{" + "customerId=" + customerId + ", creditCard=" + creditCard + ", shoppingInfo=" + shoppingInfo + ", users=" + users + '}';
+        return "Customers{" + "customerId=" + customerId + ", creditCard=" + creditCard + ", shoppingInfo=" + shoppingInfo + ", userId=" + userId + '}';
     }
-    
-    
-
+   
 }
