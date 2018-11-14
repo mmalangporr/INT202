@@ -20,27 +20,24 @@ import javax.validation.constraints.NotBlank;
  */
 @Entity
 @Table(name = "orders")
-public class Orders extends SerializableSerializer{
-    
+public class Orders extends SerializableSerializer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long orderId;
-    
+
     @NotBlank
     private Date orderDate;
-    
+
     @NotBlank
     private String status;
-    
+
     @NotBlank
     private double totalPrice;
-    
+
     @NotBlank
     private long userId;
-    
-    @NotBlank
-    private long shippingId;
-    
+
     @NotBlank
     private long orderDetailsId;
 
@@ -84,14 +81,6 @@ public class Orders extends SerializableSerializer{
         this.userId = userId;
     }
 
-    public long getShippingId() {
-        return shippingId;
-    }
-
-    public void setShippingId(long shippingId) {
-        this.shippingId = shippingId;
-    }
-
     public long getOrderDetailsId() {
         return orderDetailsId;
     }
@@ -102,7 +91,7 @@ public class Orders extends SerializableSerializer{
 
     @Override
     public String toString() {
-        return "Orders{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", status=" + status + ", totalPrice=" + totalPrice + ", userId=" + userId + ", shippingId=" + shippingId + ", orderDetailsId=" + orderDetailsId + '}';
+        return "Orders{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", status=" + status + ", totalPrice=" + totalPrice + ", userId=" + userId + ", orderDetailsId=" + orderDetailsId + '}';
     }
 
 }

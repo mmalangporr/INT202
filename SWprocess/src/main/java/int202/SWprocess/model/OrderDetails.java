@@ -31,7 +31,11 @@ public class OrderDetails extends SerializableSerializer {
     @NotBlank
     private long productId;
     
+    @NotBlank
     private int quantity;
+    
+    @NotBlank
+    private String address;
 
     public long getOrderDetailsId() {
         return orderDetailsId;
@@ -65,10 +69,19 @@ public class OrderDetails extends SerializableSerializer {
         this.quantity = quantity;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
-        return "OrderDetails{" + "orderDetailsId=" + orderDetailsId + ", orderId=" + orderId + ", productId=" + productId + ", quantity=" + quantity + '}';
+        return "OrderDetails{" + "orderDetailsId=" + orderDetailsId + ", orderId=" + orderId + ", productId=" + productId + ", quantity=" + quantity + ", address=" + address + '}';
     }
-    
+
+  
     
 }

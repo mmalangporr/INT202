@@ -7,12 +7,16 @@ package int202.SWprocess.service;
 
 import int202.SWProcess.model.Product;
 import int202.SWprocess.repository.ProductRepository;
+<<<<<<< HEAD
+=======
 import int202.SWprocess.repository.ProductTypeRepository;
 import java.util.ArrayList;
+>>>>>>> master
 import java.util.List;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import int202.SWprocess.repository.ProductDetailsRepository;
 
 /**
  *
@@ -30,8 +34,9 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepo;
     
+    
     @Autowired
-    private ProductTypeRepository productTypeRepo;
+    private ProductDetailsRepository productDetailsRepo;
     
     public List<Product> getAllProducts(){
         List<Product> p = productRepo.findAll();
