@@ -23,17 +23,17 @@ public class ProductDetails extends SerializableSerializer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long productId;
+    private long productDetailId;
     
     @NotBlank
     private String productDetail;
 
-    public long getProductId() {
-        return productId;
+    public long getproductDetailId() {
+        return productDetailId;
     }
 
-    public void setProductId(long productId) {
-        this.productId = productId;
+    public void setPproductDetailId(long productDetailId) {
+        this.productDetailId = productDetailId;
     }
 
     public String getProductDetail() {
@@ -46,6 +46,6 @@ public class ProductDetails extends SerializableSerializer {
 
     @Override
     public String toString() {
-        return "ProductDetails{" + "productId=" + productId + ", productDetail=" + productDetail + '}';
+        return "ProductDetails{" + "productId=" + productDetailId + ", productDetail=" + productDetail + '}';
     }
 }

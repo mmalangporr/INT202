@@ -30,7 +30,7 @@ public class Orders extends SerializableSerializer {
     private Date orderDate;
 
     @NotBlank
-    private String status;
+    private boolean status;
 
     @NotBlank
     private double totalPrice;
@@ -57,11 +57,11 @@ public class Orders extends SerializableSerializer {
         this.orderDate = orderDate;
     }
 
-    public String getStatus() {
+    public boolean isStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
@@ -94,4 +94,5 @@ public class Orders extends SerializableSerializer {
         return "Orders{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", status=" + status + ", totalPrice=" + totalPrice + ", userId=" + userId + ", orderDetailsId=" + orderDetailsId + '}';
     }
 
+    
 }
