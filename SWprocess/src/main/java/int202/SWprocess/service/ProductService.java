@@ -7,14 +7,7 @@ package int202.SWprocess.service;
 
 import int202.SWProcess.model.Product;
 import int202.SWprocess.repository.ProductRepository;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-import int202.SWprocess.repository.ProductTypeRepository;
 import java.util.ArrayList;
->>>>>>> master
->>>>>>> master
 import java.util.List;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
