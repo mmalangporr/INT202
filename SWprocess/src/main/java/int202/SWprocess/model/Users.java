@@ -52,15 +52,6 @@ public class Users extends SerializableSerializer{
     @NotBlank
     private boolean loginStatus;
 
-    @NotBlank
-    private long customerId;
-    
-    @NotBlank
-    private long sellerId;
-    
-    @NotBlank
-    private long adminId;
-
     public long getUserId() {
         return userId;
     }
@@ -141,33 +132,9 @@ public class Users extends SerializableSerializer{
         this.loginStatus = loginStatus;
     }
 
-    public long getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(long customerId) {
-        this.customerId = customerId;
-    }
-
-    public long getSellerId() {
-        return sellerId;
-    }
-
-    public void setSellerId(long sellerId) {
-        this.sellerId = sellerId;
-    }
-
-    public long getAdminId() {
-        return adminId;
-    }
-
-    public void setAdminId(long adminId) {
-        this.adminId = adminId;
-    }
-
     @Override
     public String toString() {
-        return "Users{" + "userId=" + userId + ", fullName=" + fullName + ", userName=" + userName + ", email=" + email + ", password=" + password + ", address=" + address + ", phoneNumber=" + phoneNumber + ", roleOfUser=" + roleOfUser + ", image=" + image + ", loginStatus=" + loginStatus + ", customerId=" + customerId + ", sellerId=" + sellerId + ", adminId=" + adminId + '}';
+        return "Users{" + "userId=" + userId + ", fullName=" + fullName + ", userName=" + userName + ", email=" + email + ", password=" + password + ", address=" + address + ", phoneNumber=" + phoneNumber + ", roleOfUser=" + roleOfUser + ", image=" + image + ", loginStatus=" + loginStatus + '}';
     }
 
     

@@ -28,9 +28,6 @@ public class ProductType extends SerializableSerializer{
     @NotBlank
     private String productTypeName;
 
-   @NotBlank
-   private long productId;
-
     public long getProductTypeId() {
         return productTypeId;
     }
@@ -47,18 +44,10 @@ public class ProductType extends SerializableSerializer{
         this.productTypeName = productTypeName;
     }
 
-    public long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(long productId) {
-        this.productId = productId;
-    }
-
     @Override
     public String toString() {
-        return "ProductType{" + "productTypeId=" + productTypeId + ", productTypeName=" + productTypeName + ", productId=" + productId + '}';
+        return "ProductType{" + "productTypeId=" + productTypeId + ", productTypeName=" + productTypeName + '}';
     }
-   
-   
+
+    
 }

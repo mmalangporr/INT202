@@ -45,6 +45,19 @@ public class Product extends SerializableSerializer{
     
     @NotBlank
     private long productTypeId;
+    
+    @NotBlank
+    private long sellerId;
+
+    public long getSellerId() {
+        return sellerId;
+    }
+
+    public void setSellerId(long sellerId) {
+        this.sellerId = sellerId;
+    }
+    
+    
 
     public long getProductId() {
         return productId;
@@ -112,7 +125,9 @@ public class Product extends SerializableSerializer{
 
     @Override
     public String toString() {
-        return "Product{" + "productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice + ", productStock=" + productStock + ", productSize=" + productSize + ", productImage=" + productImage + ", productDetails=" + productDetails + ", productTypeId=" + productTypeId + '}';
+        return "Product{" + "productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice + ", productStock=" + productStock + ", productSize=" + productSize + ", productImage=" + productImage + ", productDetails=" + productDetails + ", productTypeId=" + productTypeId + ", sellerId=" + sellerId + '}';
     }
+
+    
 
 }

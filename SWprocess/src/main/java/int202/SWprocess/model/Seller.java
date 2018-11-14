@@ -32,9 +32,6 @@ public class Seller extends SerializableSerializer{
     private String shopDetails;
     
     @NotBlank
-    private long productId;
-    
-    @NotBlank
     private long userId;
 
     public long getSellerId() {
@@ -61,14 +58,6 @@ public class Seller extends SerializableSerializer{
         this.shopDetails = shopDetails;
     }
 
-    public long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(long productId) {
-        this.productId = productId;
-    }
-
     public long getUserId() {
         return userId;
     }
@@ -79,7 +68,7 @@ public class Seller extends SerializableSerializer{
 
     @Override
     public String toString() {
-        return "Seller{" + "sellerId=" + sellerId + ", shopName=" + shopName + ", shopDetails=" + shopDetails + ", productId=" + productId + ", userId=" + userId + '}';
+        return "Seller{" + "sellerId=" + sellerId + ", shopName=" + shopName + ", shopDetails=" + shopDetails + ", userId=" + userId + '}';
     }
 
 }

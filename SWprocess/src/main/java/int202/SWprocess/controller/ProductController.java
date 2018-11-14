@@ -18,20 +18,20 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Kittisak
  */
-@RestController
+@Controller
 public class ProductController {
     
     @Autowired
     private ProductService productService;
        
     @GetMapping("/products")
-    public List<Product> getProduct(){
-        return productService.getAllProducts();
+    public String addTocart(){
+        return "productdetail";
     }
     
-    @GetMapping("/product/{id}")
+    /*@GetMapping("/product/{id}")
     public String getProductById(@PathVariable long id){
         return "this is product"+id;
-    }
+    }*/
     
 }
