@@ -5,7 +5,7 @@
  */
 package int202.SWprocess.repository;
 
-import int202.SWProcess.model.Product;
+import int202.SWProcess.model.ProductDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author Kittisak
  */
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long>{
-    public Product findProductById(int productId);
-    public Product findProductByName(String productName);
+public interface ProductDetailsRepository extends JpaRepository<ProductDetails,Long>{
+    
 }
