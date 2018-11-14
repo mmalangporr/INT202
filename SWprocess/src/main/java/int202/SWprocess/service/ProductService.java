@@ -8,6 +8,7 @@ package int202.SWprocess.service;
 import int202.SWProcess.model.Product;
 import int202.SWprocess.repository.ProductRepository;
 import int202.SWprocess.repository.ProductTypeRepository;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,16 @@ public class ProductService {
     public List<Product> getAllProducts(){
         List<Product> p = productRepo.findAll();
         return p;
+    }
+    
+    public Product getProductByID(int productId){
+        Product p = productRepo.findProductById(productId);
+        return p;
+    }
+    
+    public Product getProductByName(String productName){
+        Product n = productRepo.findProductByName(productName);
+        return n;
     }
     
     public void setProduct(Product product){
@@ -68,6 +79,7 @@ public class ProductService {
         temp = null;
         capacity = cart.length;
     }
+    
         
     
 
