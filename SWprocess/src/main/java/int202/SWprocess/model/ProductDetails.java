@@ -15,39 +15,37 @@ import javax.validation.constraints.NotBlank;
 
 /**
  *
- * @author Kittisak
+ * @author User
  */
 @Entity
-@Table(name = "productType")
-public class ProductType extends SerializableSerializer{
-    
+@Table(name = "productdetails")
+public class ProductDetails extends SerializableSerializer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long productTypeId;
+    private long productId;
     
     @NotBlank
-    private String productTypeName;
+    private String productDetail;
 
-    public long getProductTypeId() {
-        return productTypeId;
+    public long getProductId() {
+        return productId;
     }
 
-    public void setProductTypeId(long productTypeId) {
-        this.productTypeId = productTypeId;
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
 
-    public String getProductTypeName() {
-        return productTypeName;
+    public String getProductDetail() {
+        return productDetail;
     }
 
-    public void setProductTypeName(String productTypeName) {
-        this.productTypeName = productTypeName;
+    public void setProductDetail(String productDetail) {
+        this.productDetail = productDetail;
     }
 
     @Override
     public String toString() {
-        return "ProductType{" + "productTypeId=" + productTypeId + ", productTypeName=" + productTypeName + '}';
+        return "ProductDetails{" + "productId=" + productId + ", productDetail=" + productDetail + '}';
     }
-
-    
 }

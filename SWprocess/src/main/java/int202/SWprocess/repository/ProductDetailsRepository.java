@@ -5,7 +5,7 @@
  */
 package int202.SWprocess.repository;
 
-import int202.SWProcess.model.Seller;
+import int202.SWProcess.model.ProductDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author Kittisak
  */
 @Repository
-public interface SellerRepository extends JpaRepository<Seller, Long>{
+public interface ProductDetailsRepository extends JpaRepository<ProductDetails,Long>{
     
 }

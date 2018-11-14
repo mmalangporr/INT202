@@ -19,45 +19,20 @@ import javax.validation.constraints.NotBlank;
  */
 @Entity
 @Table(name = "products")
-public class Product extends SerializableSerializer{
-    
+public class Product extends SerializableSerializer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long productId;
-    
+
     @NotBlank
     private String productName;
-    
+
     @NotBlank
     private double productPrice;
-    
-    @NotBlank
-    private double productStock;
-    
-    @NotBlank
-    private String productSize;
-    
+
     @NotBlank
     private String productImage;
-    
-    @NotBlank
-    private String productDetails;
-    
-    @NotBlank
-    private long productTypeId;
-    
-    @NotBlank
-    private long sellerId;
-
-    public long getSellerId() {
-        return sellerId;
-    }
-
-    public void setSellerId(long sellerId) {
-        this.sellerId = sellerId;
-    }
-    
-    
 
     public long getProductId() {
         return productId;
@@ -83,22 +58,6 @@ public class Product extends SerializableSerializer{
         this.productPrice = productPrice;
     }
 
-    public double getProductStock() {
-        return productStock;
-    }
-
-    public void setProductStock(double productStock) {
-        this.productStock = productStock;
-    }
-
-    public String getProductSize() {
-        return productSize;
-    }
-
-    public void setProductSize(String productSize) {
-        this.productSize = productSize;
-    }
-
     public String getProductImage() {
         return productImage;
     }
@@ -107,27 +66,9 @@ public class Product extends SerializableSerializer{
         this.productImage = productImage;
     }
 
-    public String getProductDetails() {
-        return productDetails;
-    }
-
-    public void setProductDetails(String productDetails) {
-        this.productDetails = productDetails;
-    }
-
-    public long getProductTypeId() {
-        return productTypeId;
-    }
-
-    public void setProductTypeId(long productTypeId) {
-        this.productTypeId = productTypeId;
-    }
-
     @Override
     public String toString() {
-        return "Product{" + "productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice + ", productStock=" + productStock + ", productSize=" + productSize + ", productImage=" + productImage + ", productDetails=" + productDetails + ", productTypeId=" + productTypeId + ", sellerId=" + sellerId + '}';
+        return "Product{" + "productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice + ", productImage=" + productImage + '}';
     }
-
-    
 
 }

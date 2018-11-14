@@ -38,19 +38,7 @@ public class Users extends SerializableSerializer{
     private String password;
     
     @NotBlank
-    private String address;
-    
-    @NotBlank
     private String phoneNumber;
-    
-    @NotBlank
-    private String roleOfUser;
-    
-    @NotBlank
-    private String image;
-    
-    @NotBlank
-    private boolean loginStatus;
 
     public long getUserId() {
         return userId;
@@ -92,14 +80,6 @@ public class Users extends SerializableSerializer{
         this.password = password;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -108,33 +88,9 @@ public class Users extends SerializableSerializer{
         this.phoneNumber = phoneNumber;
     }
 
-    public String getRoleOfUser() {
-        return roleOfUser;
-    }
-
-    public void setRoleOfUser(String roleOfUser) {
-        this.roleOfUser = roleOfUser;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public boolean isLoginStatus() {
-        return loginStatus;
-    }
-
-    public void setLoginStatus(boolean loginStatus) {
-        this.loginStatus = loginStatus;
-    }
-
     @Override
     public String toString() {
-        return "Users{" + "userId=" + userId + ", fullName=" + fullName + ", userName=" + userName + ", email=" + email + ", password=" + password + ", address=" + address + ", phoneNumber=" + phoneNumber + ", roleOfUser=" + roleOfUser + ", image=" + image + ", loginStatus=" + loginStatus + '}';
+        return "Users{" + "userId=" + userId + ", fullName=" + fullName + ", userName=" + userName + ", email=" + email + ", password=" + password + ", phoneNumber=" + phoneNumber + '}';
     }
 
     
