@@ -31,7 +31,7 @@ public class OrderDetails extends SerializableSerializer {
     @NotBlank
     private long productId;
     
-    private double quantity;
+    private int quantity;
 
     public long getOrderDetailsId() {
         return orderDetailsId;
@@ -57,11 +57,11 @@ public class OrderDetails extends SerializableSerializer {
         this.productId = productId;
     }
 
-    public double getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(double quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
