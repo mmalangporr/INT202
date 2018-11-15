@@ -6,10 +6,15 @@
 package int202.SWProcess.model;
 
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -22,43 +27,30 @@ import javax.validation.constraints.NotBlank;
 public class OrderDetails extends SerializableSerializer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long orderDetailsId;
-
-    @NotBlank
-    private long orderId;
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name ="orderId")
+    private Orders orders;
     
-    @NotBlank
-    private long productId;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "productId")
+    private Product product;
     
-    @NotBlank
     private int quantity;
-    
-    @NotBlank
-    private String address;
 
-    public long getOrderDetailsId() {
-        return orderDetailsId;
+    public Orders getOrders() {
+        return orders;
     }
 
-    public void setOrderDetailsId(long orderDetailsId) {
-        this.orderDetailsId = orderDetailsId;
+    public void setOrders(Orders orders) {
+        this.orders = orders;
     }
 
-    public long getOrderId() {
-        return orderId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setOrderId(long orderId) {
-        this.orderId = orderId;
-    }
-
-    public long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(long productId) {
-        this.productId = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getQuantity() {
@@ -69,19 +61,12 @@ public class OrderDetails extends SerializableSerializer {
         this.quantity = quantity;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     @Override
     public String toString() {
-        return "OrderDetails{" + "orderDetailsId=" + orderDetailsId + ", orderId=" + orderId + ", productId=" + productId + ", quantity=" + quantity + ", address=" + address + '}';
+        return "OrderDetails{" + "orders=" + orders + ", product=" + product + ", quantity=" + quantity + '}';
     }
+    
+
 
   
-    
 }

@@ -7,8 +7,12 @@ package int202.SWProcess.model;
 
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -22,18 +26,12 @@ public class Orders extends SerializableSerializer {
 
     @Id
     private long orderId;
-
-    @NotBlank
-    private Date orderDate;
- 
-    @NotBlank
-    private int quantity;
-    
-    @NotBlank
-    private String address;
     
     @NotBlank
     private double totalPrice;
+    
+    @NotBlank
+    private String address;
 
     public long getOrderId() {
         return orderId;
@@ -41,30 +39,6 @@ public class Orders extends SerializableSerializer {
 
     public void setOrderId(long orderId) {
         this.orderId = orderId;
-    }
-
-    public Date getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public double getTotalPrice() {
@@ -75,9 +49,18 @@ public class Orders extends SerializableSerializer {
         this.totalPrice = totalPrice;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
-        return "Orders{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", quantity=" + quantity + ", address=" + address + ", totalPrice=" + totalPrice + '}';
+        return "Orders{" + "orderId=" + orderId + ", totalPrice=" + totalPrice + ", address=" + address + '}';
     }
     
+
 }
