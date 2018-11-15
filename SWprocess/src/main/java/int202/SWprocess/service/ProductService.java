@@ -12,7 +12,6 @@ import java.util.List;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import int202.SWprocess.repository.ProductDetailsRepository;
 
 /**
  *
@@ -29,10 +28,6 @@ public class ProductService {
       
     @Autowired
     private ProductRepository productRepo;
-    
-    
-    @Autowired
-    private ProductDetailsRepository productDetailsRepo;
     
     public List<Product> getAllProducts(){
         List<Product> p = productRepo.findAll();

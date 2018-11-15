@@ -24,11 +24,6 @@ public class ProductController {
     
     @Autowired
     private ProductService productService;
-       
-    @GetMapping("/products")
-    public String addTocart(){
-        return "productdetail";
-    }
     
     /*@GetMapping("/product/{id}")
     public String getProductById(@PathVariable long id){

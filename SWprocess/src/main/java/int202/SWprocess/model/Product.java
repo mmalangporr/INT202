@@ -7,8 +7,6 @@ package int202.SWProcess.model;
 
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -22,7 +20,6 @@ import javax.validation.constraints.NotBlank;
 public class Product extends SerializableSerializer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long productId;
 
     @NotBlank
@@ -33,6 +30,9 @@ public class Product extends SerializableSerializer {
 
     @NotBlank
     private String productImage;
+    
+    @NotBlank
+    private String productDetails;
 
     public long getProductId() {
         return productId;
@@ -66,9 +66,18 @@ public class Product extends SerializableSerializer {
         this.productImage = productImage;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" + "productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice + ", productImage=" + productImage + '}';
+    public String getProductDetails() {
+        return productDetails;
     }
 
+    public void setProductDetails(String productDetails) {
+        this.productDetails = productDetails;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" + "productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice + ", productImage=" + productImage + ", productDetails=" + productDetails + '}';
+    }
+    
+    
 }

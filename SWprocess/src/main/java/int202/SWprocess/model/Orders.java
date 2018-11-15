@@ -8,8 +8,6 @@ package int202.SWProcess.model;
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -23,23 +21,19 @@ import javax.validation.constraints.NotBlank;
 public class Orders extends SerializableSerializer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long orderId;
 
     @NotBlank
     private Date orderDate;
-
+ 
     @NotBlank
-    private boolean status;
-
+    private int quantity;
+    
+    @NotBlank
+    private String address;
+    
     @NotBlank
     private double totalPrice;
-
-    @NotBlank
-    private long userId;
-
-    @NotBlank
-    private long orderDetailsId;
 
     public long getOrderId() {
         return orderId;
@@ -57,12 +51,20 @@ public class Orders extends SerializableSerializer {
         this.orderDate = orderDate;
     }
 
-    public boolean isStatus() {
-        return status;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public double getTotalPrice() {
@@ -73,26 +75,9 @@ public class Orders extends SerializableSerializer {
         this.totalPrice = totalPrice;
     }
 
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    public long getOrderDetailsId() {
-        return orderDetailsId;
-    }
-
-    public void setOrderDetailsId(long orderDetailsId) {
-        this.orderDetailsId = orderDetailsId;
-    }
-
     @Override
     public String toString() {
-        return "Orders{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", status=" + status + ", totalPrice=" + totalPrice + ", userId=" + userId + ", orderDetailsId=" + orderDetailsId + '}';
+        return "Orders{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", quantity=" + quantity + ", address=" + address + ", totalPrice=" + totalPrice + '}';
     }
-
     
 }
