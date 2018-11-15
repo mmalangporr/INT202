@@ -82,6 +82,6 @@ public class Product extends SerializableSerializer {
     public String toString() {
         return "Product{" + "productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice + ", productImage=" + productImage + ", productDetails=" + productDetails + '}';
     }
-    
+
     
 }

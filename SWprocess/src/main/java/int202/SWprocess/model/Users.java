@@ -44,10 +44,6 @@ public class Users extends SerializableSerializer{
     @NotBlank
     private String phoneNumber;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinColumn(name = "orderId")
-    private Orders orders;
-
     public long getUserId() {
         return userId;
     }
@@ -96,17 +92,9 @@ public class Users extends SerializableSerializer{
         this.phoneNumber = phoneNumber;
     }
 
-    public Orders getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Orders orders) {
-        this.orders = orders;
-    }
-
     @Override
     public String toString() {
-        return "Users{" + "userId=" + userId + ", fullName=" + fullName + ", userName=" + userName + ", email=" + email + ", password=" + password + ", phoneNumber=" + phoneNumber + ", orders=" + orders + '}';
+        return "Users{" + "userId=" + userId + ", fullName=" + fullName + ", userName=" + userName + ", email=" + email + ", password=" + password + ", phoneNumber=" + phoneNumber + '}';
     }
     
     
