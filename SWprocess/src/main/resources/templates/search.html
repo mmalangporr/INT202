@@ -127,7 +127,7 @@ font{
             <b
         </div>
         <br>
-        <div class="card" th:each="product : ${allProduct}">
+        <div class="card" th:each="product : ${searchProduct}">
             <img th:src="${product.productImage}" style="width:100%">
             <h1 th:text="${product.productName}"></h1>
             <p class="price" th:text="${product.productPrice}"></p>
