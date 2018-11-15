@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- <script src="https://www.w3schools.com/w3css/4/w3.css"></script> -->
+	<style>
+		body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:white;
+}
+
+#topimage1{
+  margin-top: 30px; 
+  padding-left: 15px;
+  padding-right: 15px;
+
+
+}
+
+#topimage2{
+  margin-top: 15px;
+  margin-right: 68%;
+
+}
+
+
+li {
+    float: right;
+    
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 10px;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+#searchbox {
+    float: right;
+    margin-top: 30px;
+    padding-right: 20px;
+   
+}
+
+#shoptitle {
+    margin-top: 30px;
+}
+
+#title {
+    margin-left: 50px;
+    font-size: 40px;
+
+}
+
+#total {
+    float: right;
+    margin-right: 6%;
+}
+
+.con{
+  margin-left: 86%;
+}
+
+.con button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  width: 63%;
+  font-size: 18px;
+  color: white;
+  background-color: #191970 ;
+}
+	</style>
+	
+</head>
+
+<body>
+	
+
+	<div class="icon-bar">
+		
+		<ul>
+			<div class="topnav">
+	            <li><a href="shoppingcart.html"><img src="images/shopcart.png" id="topimage1" width="28" height="28"></li></a>
+	            <li><img src="images/search.png" id="topimage1" width="28" height="28"></li>
+            </div>
+            <div class="topnav" id="searchbox">
+				<input type="text" placeholder="Search..">
+	</div>
+            <li id="topimage2">
+                <font size="75"><b> Sha</b>lala</font>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div id="shoptitle">
+    	<span id="title"><b>Shopping Cart</b></span> 
+    	<span id="total">Total: 970 THB</span>
+	</div>
+
+	<br>
+	<center>
+		<table style="border: solid 1px ;width: 90%"  id="tablee" >
+			<tr >
+				<td colspan="2" rowspan="5" width="20%"><img src="images/product1.jpg" width="200" height="200" >
+				</td>
+			</tr>	
+			<tr>
+				<td width="30%" height="30%" colspan="2"> <b style="font-size: 16pt">Champion shirt</b></td>
+				
+			</tr>
+			<tr>
+				<td width="2%">Color: Dark blue</td>
+				<td width="10%" height="20">Size: Free size</td>
+			</tr>
+			<tr>
+				<td width="10%" height="30">Quantity</td>
+				<td> 
+					<input type="number" name="quentity" max="10" min="1">
+				</td>
+				<td style="text-align: right;"><b style="font-size: 20pt"> 970 THB</b>&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+		</table>
+	</center>
+
+	<br>
+
+	<div class="con">
+		<!-- <button class="w3-button w3-round-large w3-indigo">Continue</button> -->
+		<a href="payment.html"><button>Continue</button></a>
+	</div>
+	
+
+
+
+
+    	
+
+</body>
+</html>
