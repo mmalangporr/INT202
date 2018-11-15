@@ -7,10 +7,12 @@ package int202.SWProcess.model;
 
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -23,23 +25,15 @@ import javax.validation.constraints.NotBlank;
 public class Orders extends SerializableSerializer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private long orderId;
-
-    @NotBlank
-    private Date orderDate;
-
-    @NotBlank
-    private boolean status;
-
+    
     @NotBlank
     private double totalPrice;
-
+    
     @NotBlank
-    private long userId;
+    private String address;
 
-    @NotBlank
-    private long orderDetailsId;
+    private int quantity;
 
     public long getOrderId() {
         return orderId;
@@ -47,22 +41,6 @@ public class Orders extends SerializableSerializer {
 
     public void setOrderId(long orderId) {
         this.orderId = orderId;
-    }
-
-    public Date getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
     }
 
     public double getTotalPrice() {
@@ -73,26 +51,26 @@ public class Orders extends SerializableSerializer {
         this.totalPrice = totalPrice;
     }
 
-    public long getUserId() {
-        return userId;
+    public String getAddress() {
+        return address;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public long getOrderDetailsId() {
-        return orderDetailsId;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setOrderDetailsId(long orderDetailsId) {
-        this.orderDetailsId = orderDetailsId;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     @Override
     public String toString() {
-        return "Orders{" + "orderId=" + orderId + ", orderDate=" + orderDate + ", status=" + status + ", totalPrice=" + totalPrice + ", userId=" + userId + ", orderDetailsId=" + orderDetailsId + '}';
+        return "Orders{" + "orderId=" + orderId + ", totalPrice=" + totalPrice + ", address=" + address + ", quantity=" + quantity + '}';
     }
-
+    
     
 }

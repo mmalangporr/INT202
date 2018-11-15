@@ -5,7 +5,6 @@
  */
 package int202.SWprocess.service;
 
-import int202.SWprocess.repository.OrderDetailsRepository;
 import int202.SWprocess.repository.OrdersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +19,4 @@ public class OrderService {
     @Autowired
     private OrdersRepository OrdersRepo;
     
-    @Autowired
-    private OrderDetailsRepository OrderDetailsRepo;
 }

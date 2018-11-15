@@ -6,10 +6,14 @@
 package int202.SWProcess.model;
 
 import com.fasterxml.jackson.databind.ser.std.SerializableSerializer;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -92,6 +96,6 @@ public class Users extends SerializableSerializer{
     public String toString() {
         return "Users{" + "userId=" + userId + ", fullName=" + fullName + ", userName=" + userName + ", email=" + email + ", password=" + password + ", phoneNumber=" + phoneNumber + '}';
     }
-
+    
     
 }
