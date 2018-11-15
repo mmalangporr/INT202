@@ -31,6 +31,7 @@ public class OrderDetails extends SerializableSerializer {
     @NotBlank
     private long productId;
     
+    @NotBlank
     private int quantity;
     
     @NotBlank

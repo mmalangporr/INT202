@@ -25,6 +25,7 @@ public class ProductService {
     private int itemCount;
     private double totalPrice;
     private int capacity;
+    private String test;
       
     @Autowired
     private ProductRepository productRepo;
@@ -36,6 +37,19 @@ public class ProductService {
     public List<Product> getAllProducts(){
         List<Product> p = productRepo.findAll();
         return p;
+    }
+    
+    public String test(){
+        test = "Kuy";
+        return test;
+    }
+
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
     }
     
     public void setProduct(Product product){
