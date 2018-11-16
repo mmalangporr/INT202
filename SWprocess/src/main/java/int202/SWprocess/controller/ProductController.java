@@ -13,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -36,26 +38,20 @@ public class ProductController {
         return "index";
     }
     
-<<<<<<< Updated upstream
+
     @GetMapping("/shoppingcart")
     public String getProductById(ModelMap model){
         model.addAttribute("productById", productService.getProductById());
         return "shoppingcart";
-=======
+    }
    
     @RequestMapping("/index")
     public String search(@RequestParam String search){
         productService.getAllSearch(search);
-        
         return search;
->>>>>>> Stashed changes
     }
-   
-    
-<<<<<<< Updated upstream
-    
-=======
-     @GetMapping("/search")
+
+    @GetMapping("/search")
     public String searchProduct(ModelMap model,@RequestParam String search){
         model.addAttribute("searchProduct",productService.getAllSearch(search));
         return "search";
@@ -73,6 +69,5 @@ public class ProductController {
 //        
 //    }
 //    
->>>>>>> Stashed changes
     
 }
