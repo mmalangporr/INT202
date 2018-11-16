@@ -39,11 +39,11 @@ public class ProductController {
     }
     
 
-    @GetMapping("/shoppingcart")
-    public String getProductById(ModelMap model){
-        model.addAttribute("productById", productService.getProductById());
-        return "shoppingcart";
-    }
+//    @RequestMapping("/index")
+//    public String getProductDetail(@RequestParam long id){
+//        
+//    }
+    
    
     @RequestMapping("/index")
     public String search(@RequestParam String search){

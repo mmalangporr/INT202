@@ -134,28 +134,14 @@ and open the template in the editor.
                                     </div>
                                     <br>
                                         <form action="get" th:action="@{/search}" th:object="${search}">
-                                <label for="search_input">Search:</label><input name="search" id="search"></input>
-                                <button type="submit" >Search</button>
-                            </form>
-                                        <form action="/shoppingcart" method="GET">
-                                            <div class="card" th:each="product : ${allProduct}">
-                                                <img th:src="${product.productImage}" style="width:100%">
-                                                <h1 th:text="${product.productName}"></h1>
-                                                <p class="price" th:text="${product.productPrice}"></p>
-                                                <p class="detail" th:text="${product.productDetails}"></p>
-                                                <input type="submit" name="addToCart" value="Add to Cart">
-                                            </div>
-                                        </form>
-=======
+        <label for="search_input">Search:</label><input name="search" id="search"></input>
+                <button type="submit" >Search</button>
+            </form>
         <div class="hero-image">
             
         </div>
         <br>
         <div class="topnav">
-            <form action="get" th:action="@{/search}" th:object="${search}">
-    <label for="search_input">Search:</label><input name="search" id="search"></input>
-                <button type="submit" >Search</button>
-            </form>
             <b
         </div>
         <br>
@@ -163,8 +149,9 @@ and open the template in the editor.
             <img th:src="${product.productImage}" style="width:100%">
             <h1 th:text="${product.productName}"></h1>
             <p class="price" th:text="${product.productPrice}"></p>
+            <form action="get" th:action="@{/shoppingcart}" th:object="${shoppingcart}">
             <a href="/products"><button>Add to Cart</button></a>
+                        </form>
         </div>
->>>>>>> Stashed changes
     </body>
 </html>
