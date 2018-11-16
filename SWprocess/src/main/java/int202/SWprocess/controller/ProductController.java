@@ -63,6 +63,11 @@ public class ProductController {
         
         return search;
     }
+    
+     @GetMapping("/productdetail")
+    public String getProductDetail(ModelMap model){
+        return "productdetail";
+    }
    
 //    @RequestMapping("/productdetail")
 //    public String productId(@RequestParam int productId){
