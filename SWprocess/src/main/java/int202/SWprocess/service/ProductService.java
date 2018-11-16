@@ -48,27 +48,13 @@ public class ProductService {
         return p;
     }
     
-<<<<<<< Updated upstream
+
     public Product getProductById(){
         Product prod = productRepo.getOne(Long.MIN_VALUE);
         return prod;
     }
-    
-    public String test(){
-        test = "Kuy";
-        return test;
-    }
 
-    public String getTest() {
-        return test;
-    }
 
-    public void setTest(String test) {
-        this.test = test;
-    }
-=======
-    
->>>>>>> Stashed changes
     
     public void setProduct(Product product){
        productRepo.save(product);
@@ -81,8 +67,7 @@ public class ProductService {
         totalPrice = 0.0;
     }
     
-<<<<<<< Updated upstream
-=======
+
     public List<Product> getProductById(int productId){
         List<Product> p = productRepo.findByProductId(productId);
         return p;
@@ -103,7 +88,7 @@ public class ProductService {
         }
     }
     
->>>>>>> Stashed changes
+
 //    public void addToCart(String ProductName, double price){
 //        
 //        Product temp = new Product(ProductName, price);

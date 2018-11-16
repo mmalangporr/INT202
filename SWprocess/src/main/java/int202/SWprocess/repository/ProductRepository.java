@@ -6,15 +6,14 @@
 package int202.SWprocess.repository;
 
 import int202.SWProcess.model.Product;
-<<<<<<< Updated upstream
-=======
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import static javax.swing.text.html.HTML.Tag.SELECT;
 import static org.hibernate.hql.internal.antlr.HqlSqlTokenTypes.FROM;
->>>>>>> Stashed changes
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -23,8 +22,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long>{
-<<<<<<< Updated upstream
-=======
+
     public List<Product> findByProductId(int productId);
     public List<Product> findByProductNameLike(String productName);
     
@@ -35,5 +33,4 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
 //    public Optional<Product> findAllProduct(long productId,String productName,String productDetail,String productImage,double productPrice);
     
     
->>>>>>> Stashed changes
 }
