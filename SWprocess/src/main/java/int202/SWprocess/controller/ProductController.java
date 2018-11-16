@@ -27,10 +27,10 @@ public class ProductController {
     @Autowired
     private ProductService productService;
     
-    /*@GetMapping("/product/{id}")
-    public String getProductById(@PathVariable long id){
-        return "this is product"+id;
-    }*/
+//    @GetMapping("/product/{id}")
+//    public String getProductById(@PathVariable long id){
+//        return "this is product"+id;
+//    }
     
     @GetMapping("/index")
     public String getAllProduct(ModelMap model){
@@ -40,16 +40,18 @@ public class ProductController {
     
 
 //    @RequestMapping("/index")
-//    public String getProductDetail(@RequestParam long id){
-//        
+//    public long getProductDetail(@RequestParam long productId){
+//       productService.getProductById(productId);
+//       return productId;
 //    }
     
+    
    
-    @RequestMapping("/index")
-    public String search(@RequestParam String search){
-        productService.getAllSearch(search);
-        return search;
-    }
+//    @RequestMapping("/index")
+//    public String search(@RequestParam String search){
+//        productService.getAllSearch(search);
+//        return search;
+//    }
 
     @GetMapping("/search")
     public String searchProduct(ModelMap model,@RequestParam String search){
@@ -64,15 +66,17 @@ public class ProductController {
         return search;
     }
     
-     @GetMapping("/productdetail")
-    public String getProductDetail(ModelMap model){
-        return "productdetail";
+     @RequestMapping("/productdetail")
+    public long getProductDetail(@RequestParam long productId){
+        productService.getProductById(productId);
+        return productId;
     }
    
-//    @RequestMapping("/productdetail")
-//    public String productId(@RequestParam int productId){
-//        
-//    }
-//    
+    @GetMapping("/productdetail")
+    public String productDetail(ModelMap model,@RequestParam long productId){
+        model.addAttribute("searchProduct",productService.getProductById(productId));
+        return "productdetail";
+    }
+
     
 }

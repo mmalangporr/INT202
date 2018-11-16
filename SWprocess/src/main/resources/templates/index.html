@@ -155,6 +155,9 @@
             <form action="get" th:action="@{/shoppingcart}" th:object="${shoppingcart}">
             <a href="/products"><button>Add to Cart</button></a>
                         </form>
+            <form action="get" th:action="@{/productdetail}" th:object="${productdetail}">
+                <button type="hidden" value ="1" id="productId" name="productId" >Add to Cart</button>
+            </form>
         </div>
     </body>
 </html>

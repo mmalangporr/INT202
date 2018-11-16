@@ -23,7 +23,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long>{
 
-    public List<Product> findByProductId(int productId);
+    public List<Product> findByProductId(long productId);
     public List<Product> findByProductNameLike(String productName);
     
     @Query("SELECT productImage FROM Product where image = :image")

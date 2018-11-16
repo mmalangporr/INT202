@@ -27,32 +27,13 @@ public class ProductService {
       
     @Autowired
     private ProductRepository productRepo;
-    
-//    public List<Product> getAllProducts(){
-//        List<Product> p = productRepo.findAll();
-//        return p;
-//    }
-    
-    
-//    public List<Product> searchResult(String search){
-//        try{
-//            return (List<Product>) getAllSearch(search);
-//        }
-//        catch(Exception ex){
-//            return getAllProducts();
-//        }
-//    }
+
     
     public List<Product> getAllProducts(){
         List<Product> p = productRepo.findAll();
         return p;
     }
-    
-
-    public Product getProductById(){
-        Product prod = productRepo.getOne(Long.MIN_VALUE);
-        return prod;
-    }
+   
 
 
     
@@ -68,7 +49,7 @@ public class ProductService {
     }
     
 
-    public List<Product> getProductById(int productId){
+    public List<Product> getProductById(long productId){
         List<Product> p = productRepo.findByProductId(productId);
         return p;
     }
@@ -80,7 +61,7 @@ public class ProductService {
     
     public List<Product> getAllSearch(String search){
         try{
-            int id = Integer.parseInt(search);
+            long id = Integer.parseInt(search);
             return getProductById(id);
         }
         catch(Exception ex){
