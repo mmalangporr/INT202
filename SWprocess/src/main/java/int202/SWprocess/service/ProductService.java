@@ -68,18 +68,6 @@ public class ProductService {
             return getProductByName(search);
         }
     }
-    
-
-//    public void addToCart(String ProductName, double price){
-//        
-//        Product temp = new Product(ProductName, price);
-//        totalPrice += (price * quantity);
-//        itemCount += quantity;
-//        cart[itemCount] = temp;
-//        if(itemCount == capacity){
-//            increaseSizeCart();
-//        }
-//    }
         
     private void increaseSizeCart(){
         Product[] temp = new Product[capacity+3];

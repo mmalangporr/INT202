@@ -171,7 +171,9 @@ input[type=text] {
                     <option value="XL">XL</option>
                     <option value="XXL">XXL</option>
                 </select>
-                <p><button id="checkout">Buy now</button></p>
+            <a th:href="${'/Shipping/' + productdetail.productId}">
+                <button type="hidden" id="productId" name="productId" >Buy Now</button>
+            </a>
             </div>
             </div>
       

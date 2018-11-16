@@ -173,25 +173,21 @@
         </table>
 
         <hr>
-
+        <div th:each="shippingdetail : ${shippingDetail}" class="container">
         <p id="p2">Select Shipping Method</p>
         <form id="payment">
                 <input type="radio" name="payment" value="Kerry" checked>Kerry<br><br>
                 <input type="radio" name="payment" value="Local Post">Local Post
 
         </form>
-        <div>
-              <div th:each="productdetail : ${productDetail}" class="container">
                 <p id="item">Item :</p>
+                <h1 th:text="${shippingdetail.productName}"></h1>
                 <p id="item">Delivery :</p>
-
-        </div>
-        </div>
         <hr>
-        <div>
                 <p id="item">Total :</p>
-        </div>
+                <p th:text="${shippingdetail.productPrice}"></p>
         <input type="submit" value="Continue">
+        </div>
 
 </body>
 
