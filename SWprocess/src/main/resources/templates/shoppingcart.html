@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmnls:th="http://thymeleaf.org">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
@@ -66,13 +67,13 @@ ul {
   margin-left: 86%;
 }
 
-.con button {
+input[type=submit] {
+  width: 9%;
   border: none;
   outline: 0;
   padding: 12px;
   text-align: center;
   cursor: pointer;
-  width: 63%;
   font-size: 18px;
   color: white;
   background-color: #191970 ;
@@ -101,12 +102,12 @@ ul {
     </div>
 
     <hr>
-
+    
+        <form action="/payment">
     <div id="shoptitle">
     	<span id="title"><b>Shopping Cart</b></span> 
     	<span id="total">Total: 970 THB</span>
-	</div>
-
+    </div>
 	<br>
 	<center>
 		<table style="border: solid 1px ;width: 90%"  id="tablee" >
@@ -131,13 +132,9 @@ ul {
 			</tr>
 		</table>
 	</center>
-
 	<br>
-
-	<div class="con">
-		<!-- <button class="w3-button w3-round-large w3-indigo">Continue</button> -->
-		<a href="payment.html"><button>Continue</button></a>
-	</div>
+            <input type="submit" name="AddToOrder" value="Continue" class="con">
+        </form>
 	
 
 

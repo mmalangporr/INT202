@@ -13,8 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -38,26 +36,13 @@ public class ProductController {
         return "index";
     }
     
-    @RequestMapping("/index")
-    public String search(@RequestParam String search){
-        productService.getAllSearch(search);
-        return search;
+    @GetMapping("/shoppingcart")
+    public String getProductById(ModelMap model){
+        model.addAttribute("productById", productService.getProductById());
+        return "shoppingcart";
     }
-    
-//     @GetMapping("/search")
-//    public String searchProduct(ModelMap model,@RequestParam String search){
-//        model.addAttribute("searchProduct",productService.searchResult(search));
-//        return "index";
-//    }
-//    
-    
-
    
-   
-//    @RequestMapping("/productdetail")
-//    public String productId(@RequestParam int productId){
-//        
-//    }
-//    
+    
+    
     
 }

@@ -34,16 +34,23 @@ public class ProductService {
         return p;
     }
     
-    public List<Product> searchResult(String search){
-        try{
-            return (List<Product>) getAllSearch(search);
-        }
-        catch(Exception ex){
-            return getAllProducts();
-        }
+    public Product getProductById(){
+        Product prod = productRepo.getOne(Long.MIN_VALUE);
+        return prod;
     }
     
-    
+    public String test(){
+        test = "Kuy";
+        return test;
+    }
+
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
     
     public void setProduct(Product product){
        productRepo.save(product);
@@ -54,26 +61,6 @@ public class ProductService {
         cart = new Product[capacity];
         itemCount = 0;
         totalPrice = 0.0;
-    }
-    
-    public Product getProductById(int productId){
-        Product p = productRepo.findByProductId(productId);
-        return p;
-    }
-    
-    public Product getProductByName(String productName){
-        Product p2 = productRepo.findByProductNameLike("%"+productName+"%");
-        return p2;
-    }
-    
-    public Product getAllSearch(String search){
-        try{
-            int id = Integer.parseInt(search);
-            return getProductById(id);
-        }
-        catch(Exception ex){
-            return getProductByName(search);
-        }
     }
     
 //    public void addToCart(String ProductName, double price){

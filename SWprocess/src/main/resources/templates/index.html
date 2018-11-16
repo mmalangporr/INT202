@@ -6,132 +6,143 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmnls:th="http://thymeleaf.org">
+      xmnls:th="http://thymeleaf.org">
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="css/indexCss.css">
-        <style>
-            body, html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color:white;
-}
+            <link rel="stylesheet" type="text/css" href="css/indexCss.css">
+                <style>
+                    body, html {
+                        height: 100%;
+                        margin: 0;
+                        font-family: Arial, Helvetica, sans-serif;
+                        background-color:white;
+                    }
 
-.hero-image {
-  background-image: url("");
-  height: 35%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-.topnav{
- text-align: center;
- padding-bottom: 10px;
- float:left; 
-}
-input[type=text]{
-    width: 130px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color:white;
-    background-image: url('');
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px; 
-    transition: width 0.4s ease-in-out;
-}
-.card { 
-  max-width: 300px;
-  margin-right: auto ;
-  text-align: center;
-  font-family: arial;
-  display: inline-block;
-  padding: 50px 75px 50px 100px;
-  
-}
+                    .hero-image {
+                        background-image: url("");
+                        height: 35%;
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        position: relative;
+                    }
+                    .topnav{
+                        text-align: center;
+                        padding-bottom: 10px;
+                        float:left; 
+                    }
+                    input[type=text]{
+                        width: 130px;
+                        box-sizing: border-box;
+                        border-radius: 4px;
+                        font-size: 16px;
+                        background-color:white;
+                        background-image: url('');
+                        background-position: 10px 10px;
+                        background-repeat: no-repeat;
+                        padding: 12px 20px 12px 40px; 
+                        transition: width 0.4s ease-in-out;
+                    }
+                    .card { 
+                        max-width: 300px;
+                        margin-right: auto ;
+                        text-align: center;
+                        font-family: arial;
+                        display: inline-block;
+                        padding: 50px 75px 50px 100px;
 
-.price {
-  color: grey;
-  font-size: 22px;
-}
+                    }
 
-.card button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
+                    .price {
+                        color: grey;
+                        font-size: 22px;
+                    }
 
-.card button:hover {
-  opacity: 0.7;
-}
+                    .card button {
+                        border: none;
+                        outline: 0;
+                        padding: 12px;
+                        color: white;
+                        background-color: #000;
+                        text-align: center;
+                        cursor: pointer;
+                        width: 100%;
+                        font-size: 18px;
+                    }
+
+                    .card button:hover {
+                        opacity: 0.7;
+                    }
 
 
-ul {
-    list-style-type: none;
-    margin-top: 10px;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
-}
-li {
-    float: right;
-    
-}
-#topimage1{
-  margin-top: 10px; 
-  padding-left: 15px;
-  padding-right: 15px; 
-}
-#topimage2{
-  margin-top: 15px;
-  margin-right: 40%;
-}
-font{
-  font-family: Helvetica;
-}
+                    ul {
+                        list-style-type: none;
+                        margin-top: 10px;
+                        padding: 0;
+                        overflow: hidden;
+                        background-color: white;
+                    }
+                    li {
+                        float: right;
 
-        </style>
-    </head>
+                    }
+                    #topimage1{
+                        margin-top: 10px; 
+                        padding-left: 15px;
+                        padding-right: 15px; 
+                    }
+                    #topimage2{
+                        margin-top: 15px;
+                        margin-right: 40%;
+                    }
+                    font{
+                        font-family: Helvetica;
+                    }
+                    input[type=submit]{
+                        background-color: #000000;
+                        border: none;
+                        color: white;
+                        font-size: 20px;
+                        padding: 30px 100px;
+                        text-decoration: none;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                    }
 
-    <body>
+                </style>
+                </head>
 
-        <div class="icon-bar">
-            <ul>
-                <li><a href="login.html"><img src="" id="topimage1" ></a></li>
-                <li><img src="" id="topimage1"></li>
-                <li id="topimage2">
-                    <font size="5"><b>" Shalala "</b></font>
-                </li>
-            </ul>
-        </div>
+                <body>
 
-        <div class="hero-image">
-            
-        </div>
-        <br>
-        <div class="topnav">
-            <form method="get" th:action="@{/search}" th:object="${search}">
-    <label for="search_input">Search:</label><input name="search" id="search"></input>
-                <button type="submit" >Search</button>
-            </form>
-            <b
-        </div>
-        <br>
-        <div class="card" th:each="product : ${allProduct}">
-            <img th:src="${product.productImage}" style="width:100%">
-            <h1 th:text="${product.productName}"></h1>
-            <p class="price" th:text="${product.productPrice}"></p>
-            <a href="/products"><button>Add to Cart</button></a>
-        </div>
+                    <div class="icon-bar">
+                        <ul>
+                            <li><a href="login.html"><img src="" id="topimage1" ></a></li>
+                            <li><img src="" id="topimage1"></li>
+                            <li id="topimage2">
+                                <font size="5"><b>" Shalala "</b></font>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="hero-image">
+
+                    </div>
+                    <br>
+                        <div class="topnav">
+                            <input type="text" name="search" placeholder="Search...">
+                                <button type="submit" >Search</button>
+                                <b
+                                    </div>
+                                    <br>
+                                        <form action="/shoppingcart" method="GET">
+                                            <div class="card" th:each="product : ${allProduct}">
+                                                <img th:src="${product.productImage}" style="width:100%">
+                                                <h1 th:text="${product.productName}"></h1>
+                                                <p class="price" th:text="${product.productPrice}"></p>
+                                                <p class="detail" th:text="${product.productDetails}"></p>
+                                                <input type="submit" name="addToCart" value="Add to Cart">
+                                            </div>
+                                        </form>
     </body>
 </html>
