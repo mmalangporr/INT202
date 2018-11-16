@@ -32,18 +32,25 @@ and open the template in the editor.
  padding-bottom: 10px;
  float:left; 
 }
-input[type=text]{
-    width: 130px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color:white;
-    background-image: url('');
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px; 
-    transition: width 0.4s ease-in-out;
-}
+
+ input[type=text] {
+                            width: 100%;
+                            box-sizing: border-box;
+                            border: 2px solid #ccc;
+                            border-radius: 4px;
+                            font-size: 16px;
+                            background-color: white;
+                            background-image: url('searchicon.png');
+                            background-position: 10px 10px; 
+                            background-repeat: no-repeat;
+                             padding: 12px 20px 12px 40px; 
+                        }
+                        a.search{
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 50pt;
+                            border-radius:25pt;
+
+                        }
 .card { 
   max-width: 300px;
   margin-right: auto ;
@@ -87,15 +94,7 @@ li {
     float: right;
     
 }
-#topimage1{
-  margin-top: 10px; 
-  padding-left: 15px;
-  padding-right: 15px; 
-}
-#topimage2{
-  margin-top: 15px;
-  margin-right: 40%;
-}
+
 font{
   font-family: Helvetica;
 }
@@ -105,25 +104,25 @@ font{
 
     <body>
 
-        <div class="icon-bar">
-            <ul>
-                <li><a href="login.html"><img src="" id="topimage1" ></a></li>
-                <li><img src="" id="topimage1"></li>
-                <li id="topimage2">
-                    <font size="5"><b>" Shalala "</b></font>
-                </li>
-            </ul>
-        </div>
+<table style="width:100%">
+                                <tr>
+                                  <th><a class="search"><b>Sha</b>lala</a></th>
+                                  <th colspan="2"><form></form><input style="width: 30% ; margin-left: 20%; " type="text" name="search" placeholder="Search..">
+                                    <button class="iconn" type="submit" style="margin-left:10px;border-radius: 20% ;background-color: #F5F5F5; "><img src="https://image.flaticon.com/icons/svg/34/34202.svg"
+                                        width="30" height="30" ></button>
+                                    <button class="iconn" type="submit" style="margin-left:10px;border-radius: 20% ;background-color: #F5F5F5;"><img src="https://image.flaticon.com/icons/svg/60/60992.svg "
+                                    width="30" height="30" ></button>
+                                </form></th>
+                                </tr>
+                </table>
+                <hr>
 
         <div class="hero-image">
             
         </div>
         <br>
         <div class="topnav">
-            <form method="get" th:action="@{/search}" th:object="${search}">
-    <label for="search_input">Search:</label><input name="search" id="search"></input>
-                <button type="submit" >Search</button>
-            </form>
+
             <b
         </div>
         <br>

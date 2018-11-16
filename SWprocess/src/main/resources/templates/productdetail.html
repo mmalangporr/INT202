@@ -95,17 +95,6 @@ li {
 
 }
 
-#topimage1 {
-    margin-top: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-#topimage2 {
-    margin-top: 15px;
-    margin-right: 40%;
-}
-
 font {
     font-family: Helvetica;
 }
@@ -114,6 +103,24 @@ select{
     height: 40px;
     width: 100px;
 }
+input[type=text] {
+                            width: 100%;
+                            box-sizing: border-box;
+                            border: 2px solid #ccc;
+                            border-radius: 4px;
+                            font-size: 16px;
+                            background-color: white;
+                            background-image: url('searchicon.png');
+                            background-position: 10px 10px; 
+                            background-repeat: no-repeat;
+                             padding: 12px 20px 12px 40px; 
+                        }
+                        a.search{
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 50pt;
+                            border-radius:25pt;
+
+                        }
 
             
         
@@ -122,16 +129,20 @@ select{
     </head>
 
     <body>
-        <div class="icon-bar">
-            <ul>
-                <li><img src="" id="topimage1"> </li>
-                <li><img src="" id="topimage1"></li>
-                <li id="topimage2">
-                    <font size="5"><b>" Shalala "</b></font>
-                </li>
-            </ul>
-        </div>
 
+        <table style="width:100%">
+                                <tr>
+                                  <th><a class="search"><b>Sha</b>lala</a></th>
+                                  <th colspan="2"><form></form><input style="width: 30% ; margin-left: 20%; " type="text" name="search" placeholder="Search..">
+                                    <button class="iconn" type="submit" style="margin-left:10px;border-radius: 20% ;background-color: #F5F5F5; "><img src="https://image.flaticon.com/icons/svg/34/34202.svg"
+                                        width="30" height="30" ></button>
+                                    <button class="iconn" type="submit" style="margin-left:10px;border-radius: 20% ;background-color: #F5F5F5;"><img src="https://image.flaticon.com/icons/svg/60/60992.svg "
+                                    width="30" height="30" ></button>
+                                </form></th>
+                                </tr>
+                </table>
+                <hr>
+        
         <main class="container">
             <div class="left-column">
                 <img src="images/product1.jpg" id="product">

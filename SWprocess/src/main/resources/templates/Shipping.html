@@ -69,15 +69,13 @@
                                     margin-left: 600px;
                                     width: 50%;
                                 }
-                                #search {
-                                    width: 50%;
-                                    border: 2px solid #ccc;
-                                    border-radius: 4px;
-                                    font-size: 12px;
-                                    padding: 5px 5px 5px 5px;
-                                    margin-left: 300px;  
-                                }
                                 
+
+
+
+
+
+
                                 #payment{
                                     margin-left: 80px;
                                     font-size: 18px;
@@ -92,24 +90,30 @@
                                     color:midnightblue;
                                     margin-left: 50%
                                 }
-                                 #topbar{
-                                    padding: 0px 0px 0px 0px;
-                                    border-bottom: 1px solid #ddd;
-                                    
-                                    width:100%;
-                                    height:40%;
-                                    
-                                 }
-                                 .search-pic{
-                                    width: 16px;
-                                    height: 16px;
-                                
-                                }
-                                .cart-pic{
-                                    width: 16px;
-                                    height: 16px;
-                                
-                                }
+                                 input[type=text] {
+                            width: 100%;
+                            box-sizing: border-box;
+                            border: 2px solid #ccc;
+                            border-radius: 4px;
+                            font-size: 16px;
+                            background-color: white;
+                            background-image: url('searchicon.png');
+                            background-position: 10px 10px; 
+                            background-repeat: no-repeat;
+                             padding: 12px 20px 12px 40px; 
+                        }
+                        a.search{
+                            font-family: Arial, Helvetica, sans-serif;
+                            font-size: 50pt;
+                            border-radius:25pt;
+
+                        }
+
+
+
+
+
+
                                     </style>
 </head>
 
@@ -119,17 +123,24 @@
 </head>
 
 <body>
-        <table id="topbar">
-                <tr>
-                        <th>
-                                <h1>Shalala</h1>
-                        </th>
-                        <th><input type="text" id="search" placeholder="Search.."></th>
-                        <th><button><img src="https://image.flaticon.com/icons/svg/34/34202.svg" class="search-pic"></button></th>
-                        <th><button><img src="https://image.flaticon.com/icons/svg/60/60992.svg" class="cart-pic"></button></th>
-                </tr>
+        
 
-        </table>
+<table style="width:100%">
+                                <tr>
+                                  <th><a class="search"><b>Sha</b>lala</a></th>
+                                  <th colspan="2"><form></form><input style="width: 30% ; margin-left: 20%; " type="text" name="search" placeholder="Search..">
+                                    <button class="iconn" type="submit" style="margin-left:10px;border-radius: 20% ;background-color: #F5F5F5; "><img src="https://image.flaticon.com/icons/svg/34/34202.svg"
+                                        width="30" height="30" ></button>
+                                    <button class="iconn" type="submit" style="margin-left:10px;border-radius: 20% ;background-color: #F5F5F5;"><img src="https://image.flaticon.com/icons/svg/60/60992.svg "
+                                    width="30" height="30" ></button>
+                                </form></th>
+                                </tr>
+                </table>
+                <hr>
+
+
+
+        
         <p id="p1"><b>Shipping</b></p>
 
         <p id="p2">Enter your Address</p>
