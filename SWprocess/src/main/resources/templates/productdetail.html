@@ -135,14 +135,21 @@ input[type=text] {
 
         <table style="width:100%">
                                 <tr>
-                                  <th><a class="search"><b>Sha</b>lala</a></th>
-                                  <th colspan="2"><form></form><input style="width: 30% ; margin-left: 20%; " type="text" name="search" placeholder="Search..">
-                                    <button class="iconn" type="submit" style="margin-left:10px;border-radius: 20% ;background-color: #F5F5F5; "><img src="https://image.flaticon.com/icons/svg/34/34202.svg"
+                                  <th style="width: 5%"></th>
+                                  <td><a class="search"><b>Sha</b>lala</a></td>
+                                  <th colspan="2">
+
+
+                                      <form action="get" th:action="@{/search}" th:object="${search}">
+                                          <input style="width: 70% ; margin-left: 20%; " type="text" name="search" id="search" placeholder="Search.."></input>
+                                          <th style="width: 50px">
+                                    <button class="iconn" type="submit" style="margin-left:0px;border-radius: 20% ;background-color: #F5F5F5; "><img src="https://image.flaticon.com/icons/svg/34/34202.svg"
                                         width="30" height="30" ></button>
-                                    <button class="iconn" type="submit" style="margin-left:10px;border-radius: 20% ;background-color: #F5F5F5;"><img src="https://image.flaticon.com/icons/svg/60/60992.svg "
-                                    width="30" height="30" ></button>
-                                </form></th>
-                                </tr>
+                                              </form>
+                                            </th>
+                                  
+                                  <th style="width: 50px">
+                                              
                 </table>
                 <hr>
         
@@ -164,8 +171,9 @@ input[type=text] {
                     <option value="XL">XL</option>
                     <option value="XXL">XXL</option>
                 </select>
-                <p><button id="checkout">Add to cart</button></p>
-                <p><button id="checkout">Buy now</button></p>
+            <a th:href="${'/Shipping/' + productdetail.productId}">
+                <button type="hidden" id="productId" name="productId" >Buy Now</button>
+            </a>
             </div>
             </div>
       
