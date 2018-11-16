@@ -59,7 +59,7 @@ public class ProductController {
     }
     
     
-//    @RequestMapping("/Sho[")
+//    @RequestMapping("/Shoppingcart")
 
     
 }
