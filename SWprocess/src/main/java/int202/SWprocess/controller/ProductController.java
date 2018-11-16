@@ -72,9 +72,9 @@ public class ProductController {
         return productId;
     }
    
-    @GetMapping("/productdetail")
-    public String productDetail(ModelMap model,@RequestParam long productId){
-        model.addAttribute("productDetail",productService.getProductById(productId));
+    @GetMapping("productdetail/{id}")
+    public String productDetail(ModelMap model,@PathVariable("id") int id){
+        model.addAttribute("productDetail",productService.getProductById(id));
         return "productdetail";
     }
 

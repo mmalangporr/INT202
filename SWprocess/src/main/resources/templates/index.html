@@ -137,33 +137,22 @@
                 </table>
                 <hr>
 
-
-                    <div class="hero-image">
-
-                    </div>
-                    <br>
-                        
-
-
-
         <div class="hero-image">
             
         </div>
         <br>
         <div class="topnav">
-            <b
+            
         </div>
         <br>
         <div class="card" th:each="product : ${allProduct}">
             <img th:src="${product.productImage}" style="width:100%">
             <h1 th:text="${product.productName}"></h1>
             <p class="price" th:text="${product.productPrice}"></p>
-            <form action="get" th:action="@{/shoppingcart}" th:object="${shoppingcart}">
-            <a href="/products"><button>Add to Cart</button></a>
-                        </form>
-            <form action="get" th:action="@{/productdetail}" th:object="${productdetail}">
-                <button type="hidden" value ="1" id="productId" name="productId" >Add to Cart</button>
-            </form>
+            <a th:href="${'/productdetail/' + product.productId}">
+                <button type="hidden" id="productId" name="productId" >Add to Cart</button>
+            </a>
         </div>
     </body>
 </html>
+

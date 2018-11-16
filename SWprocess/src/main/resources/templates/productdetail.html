@@ -123,7 +123,9 @@ input[type=text] {
 
                         }
 
-            
+                        #product{
+                            max-width: 300px;
+                        }           
         
         </style>
 
@@ -144,8 +146,8 @@ input[type=text] {
                 </table>
                 <hr>
         
-        <main class="container">
-            <div th:each="productdetail : ${productDetail}">
+        
+            <div th:each="productdetail : ${productDetail}" class="container">
             <div class="left-column" >
                 <img th:src="${productdetail.productImage}" id="product">
             </div>
@@ -166,8 +168,7 @@ input[type=text] {
                 <p><button id="checkout">Buy now</button></p>
             </div>
             </div>
-        </main>
-
+      
 
     </body>
 
