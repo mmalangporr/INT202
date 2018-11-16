@@ -4,7 +4,8 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmnls:th="http://thymeleaf.org">
 
     <head>
         <link rel="stylesheet" type="text/css" href="css/cartCss.css">
@@ -144,15 +145,15 @@ input[type=text] {
                 <hr>
         
         <main class="container">
-            <div class="left-column">
-                <img src="images/product1.jpg" id="product">
+            <div th:each="productdetail : ${productDetail}">
+            <div class="left-column" >
+                <img th:src="${productdetail.productImage}" id="product">
             </div>
             <div class="right-column">
                 <div class="product-description">
                     <span>Headphones</span>
-                    <h1>Beats EP</h1>
-                    <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high
-                        isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
+                    <h1 th:text="${productdetail.productName}"></h1>
+                    <p th:text="${productdetail.productDetails}"></p>
                 </div>
                 <select>
                     <option value="S">S</option>
@@ -163,6 +164,7 @@ input[type=text] {
                 </select>
                 <p><button id="checkout">Add to cart</button></p>
                 <p><button id="checkout">Buy now</button></p>
+            </div>
             </div>
         </main>
 
