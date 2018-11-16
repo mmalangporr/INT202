@@ -31,7 +31,7 @@ public class ProductController {
     public String getAllProduct(ModelMap model){
         model.addAttribute("allProduct",productService.getAllProducts());
         return "index";
-    }
+    }  
 
     @GetMapping("/search")
     public String searchProduct(ModelMap model,@RequestParam String search){
@@ -41,8 +41,7 @@ public class ProductController {
     
     @RequestMapping("/search")
     public String searchPro(@RequestParam String search){
-        productService.getAllSearch(search);
-        
+        productService.getAllSearch(search); 
         return search;
     }
     
@@ -58,8 +57,10 @@ public class ProductController {
         return "productdetail";
     }
     
-    
-//    @RequestMapping("/Shoppingcart")
-
+    @RequestMapping("/Shipping")
+    public long shippingProduct(@RequestParam long productId){
+        productService.getProductById(productId);
+        return productId;
+    }
     
 }
