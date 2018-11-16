@@ -77,6 +77,8 @@ public class ProductController {
         model.addAttribute("productDetail",productService.getProductById(id));
         return "productdetail";
     }
+    
+    
 
     
 }
