@@ -113,6 +113,7 @@ and open the template in the editor.
                 </style>
                 </head>
 
+<<<<<<< Updated upstream
                 <body>
 
                     <div class="icon-bar">
@@ -144,5 +145,25 @@ and open the template in the editor.
                                                 <input type="submit" name="addToCart" value="Add to Cart">
                                             </div>
                                         </form>
+=======
+        <div class="hero-image">
+            
+        </div>
+        <br>
+        <div class="topnav">
+            <form action="get" th:action="@{/search}" th:object="${search}">
+    <label for="search_input">Search:</label><input name="search" id="search"></input>
+                <button type="submit" >Search</button>
+            </form>
+            <b
+        </div>
+        <br>
+        <div class="card" th:each="product : ${allProduct}">
+            <img th:src="${product.productImage}" style="width:100%">
+            <h1 th:text="${product.productName}"></h1>
+            <p class="price" th:text="${product.productPrice}"></p>
+            <a href="/products"><button>Add to Cart</button></a>
+        </div>
+>>>>>>> Stashed changes
     </body>
 </html>

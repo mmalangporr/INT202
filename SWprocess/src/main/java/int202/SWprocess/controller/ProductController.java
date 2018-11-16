@@ -36,13 +36,43 @@ public class ProductController {
         return "index";
     }
     
+<<<<<<< Updated upstream
     @GetMapping("/shoppingcart")
     public String getProductById(ModelMap model){
         model.addAttribute("productById", productService.getProductById());
         return "shoppingcart";
+=======
+   
+    @RequestMapping("/index")
+    public String search(@RequestParam String search){
+        productService.getAllSearch(search);
+        
+        return search;
+>>>>>>> Stashed changes
     }
    
     
+<<<<<<< Updated upstream
     
+=======
+     @GetMapping("/search")
+    public String searchProduct(ModelMap model,@RequestParam String search){
+        model.addAttribute("searchProduct",productService.getAllSearch(search));
+        return "search";
+    }
+    
+    @RequestMapping("/search")
+    public String searchPro(@RequestParam String search){
+        productService.getAllSearch(search);
+        
+        return search;
+    }
+   
+//    @RequestMapping("/productdetail")
+//    public String productId(@RequestParam int productId){
+//        
+//    }
+//    
+>>>>>>> Stashed changes
     
 }

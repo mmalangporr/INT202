@@ -24,16 +24,31 @@ public class ProductService {
     private int itemCount;
     private double totalPrice;
     private int capacity;
-    private String test;
       
     @Autowired
     private ProductRepository productRepo;
+    
+//    public List<Product> getAllProducts(){
+//        List<Product> p = productRepo.findAll();
+//        return p;
+//    }
+    
+    
+//    public List<Product> searchResult(String search){
+//        try{
+//            return (List<Product>) getAllSearch(search);
+//        }
+//        catch(Exception ex){
+//            return getAllProducts();
+//        }
+//    }
     
     public List<Product> getAllProducts(){
         List<Product> p = productRepo.findAll();
         return p;
     }
     
+<<<<<<< Updated upstream
     public Product getProductById(){
         Product prod = productRepo.getOne(Long.MIN_VALUE);
         return prod;
@@ -51,6 +66,9 @@ public class ProductService {
     public void setTest(String test) {
         this.test = test;
     }
+=======
+    
+>>>>>>> Stashed changes
     
     public void setProduct(Product product){
        productRepo.save(product);
@@ -63,6 +81,29 @@ public class ProductService {
         totalPrice = 0.0;
     }
     
+<<<<<<< Updated upstream
+=======
+    public List<Product> getProductById(int productId){
+        List<Product> p = productRepo.findByProductId(productId);
+        return p;
+    }
+    
+    public List<Product> getProductByName(String productName){
+        List<Product> p2 = productRepo.findByProductNameLike("%"+productName+"%");
+        return p2;
+    }
+    
+    public List<Product> getAllSearch(String search){
+        try{
+            int id = Integer.parseInt(search);
+            return getProductById(id);
+        }
+        catch(Exception ex){
+            return getProductByName(search);
+        }
+    }
+    
+>>>>>>> Stashed changes
 //    public void addToCart(String ProductName, double price){
 //        
 //        Product temp = new Product(ProductName, price);
