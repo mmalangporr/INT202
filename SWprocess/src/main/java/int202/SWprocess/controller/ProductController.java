@@ -77,6 +77,18 @@ public class ProductController {
         model.addAttribute("productDetail",productService.getProductById(id));
         return "productdetail";
     }
+<<<<<<< Updated upstream
 
+=======
+    
+    
+    @RequestMapping("/Shipping")
+    public long shippingProduct(@RequestParam long productId){
+        productService.getProductById(productId);
+        return productId;
+    }
+    
+    
+>>>>>>> Stashed changes
     
 }
