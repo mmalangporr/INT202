@@ -70,6 +70,12 @@
                                     width: 50%;
                                 }
                                 
+                                .left #pics{
+                                    margin-left:-1100px;
+                                    margin-top: -200px;
+                                    float: left;
+                                }
+                                
                                 #payment{
                                     margin-left: 80px;
                                     font-size: 18px;
@@ -110,6 +116,10 @@
                             font-size: 40px;
                             font-weight: bold; 
                         }
+                        #pics{
+                            float: left;
+                        }
+
 
     </style>
 </head>
@@ -124,7 +134,8 @@
 
 <table style="width:100%">
                                 <tr>
-                                  <th><a class="search"><center><b>Sha</b>lala</a></th>
+                                  <th style="width: 5%"></th>
+                            <td><a class="search"><b>Sha</b>lala</a></td>
                                  
                                 </tr>
                 </table>
@@ -176,8 +187,12 @@
                 <input type="radio" name="payment" value="Kerry" checked>Kerry<br><br>
                 <input type="radio" name="payment" value="Local Post">Local Post
             </form>
-            <!-- Image(Left-Column) -->
+            <br>
+            <br>
             <hr>
+            <div class="left">
+            <img id="pics" th:src="${shippingdetail.productImage}" style="width:100%" >
+            </div>
             <p id="item">Item : <span id="prodName" th:text="${shippingdetail.productName}"></span></p>    
             <p id="item">Total : <span id="prodPrice" th:text="${shippingdetail.productPrice}"></span></p>
             <input type="submit" value="Continue">
