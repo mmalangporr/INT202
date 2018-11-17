@@ -30,7 +30,7 @@ public class Orders extends SerializableSerializer {
     
     @NotBlank
     private String address;
-
+    
     private int quantity;
     
     @NotNull

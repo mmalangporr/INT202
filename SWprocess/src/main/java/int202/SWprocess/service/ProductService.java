@@ -33,13 +33,6 @@ public class ProductService {
         List<Product> p = productRepo.findAll();
         return p;
     }
-   
-
-
-    
-    public void setProduct(Product product){
-       productRepo.save(product);
-    }
     
     public ProductService(){
         capacity = 5;
@@ -78,22 +71,6 @@ public class ProductService {
         temp = null;
         capacity = cart.length;
     }
-    
-//    public int addOrUpdate(Users user){
-//        if (user.getId() > 0) {
-//            String sql = "UPDATE people SET name=?, age =?, email=? WHERE id=" +user.getId();
-//            System.out.println(sql);
-//            return template.update(sql, user.getName(), user.getAge(), user.getEmail());
-//
-//        } else {
-//            String sql = "INSERT INTO people ( name, age, email) VALUES ( ?, ?, ?)";
-//            System.out.println(sql);
-//            return template.update(sql, user.getName(), user.getAge(), user.getEmail());
-//
-//        }
-//}
-//    
-//    public 
         
     
 

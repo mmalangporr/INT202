@@ -5,6 +5,7 @@
  */
 package int202.SWprocess.service;
 
+import int202.SWProcess.model.Users;
 import int202.SWprocess.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,11 @@ public class UserService {
     
     @Autowired
     private UsersRepository userRepo;
+    
+    public Users save(Users users){
+        return userRepo.save(users);
+
+    }
     
 }
     

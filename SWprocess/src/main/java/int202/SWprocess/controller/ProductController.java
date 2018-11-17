@@ -33,17 +33,18 @@ public class ProductController {
         return "index";
     }  
 
+    @RequestMapping("/search")
+    public String searchPro(@RequestParam String search){
+        productService.getAllSearch(search); 
+        return search;
+    }
+    
     @GetMapping("/search")
     public String searchProduct(ModelMap model,@RequestParam String search){
         model.addAttribute("searchProduct",productService.getAllSearch(search));
         return "search";
     }
     
-    @RequestMapping("/search")
-    public String searchPro(@RequestParam String search){
-        productService.getAllSearch(search); 
-        return search;
-    }
     
      @RequestMapping("/productdetail")
     public long getProductDetail(@RequestParam long productId){

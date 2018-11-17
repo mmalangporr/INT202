@@ -9,12 +9,21 @@ import co.omise.Client;
 import co.omise.ClientException;
 import co.omise.models.Charge;
 import co.omise.models.OmiseException;
+import int202.SWProcess.model.Orders;
+import int202.SWProcess.model.Users;
+import int202.SWProcess.model.Product;
 import int202.SWprocess.service.OrderService;
+import int202.SWprocess.service.ProductService;
+import int202.SWprocess.service.UserService;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -25,12 +34,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrdersController {
 
     @Autowired
-    private OrderService orderService;
+    OrderService orderService;
+
 
     /*@GetMapping("/payment")
     public String getOrders() {
         return "payment";
     }*/
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    ProductService productService;
+
+//    @GetMapping("/payment")
+//    public String getOrders() {
+//        return "payment";
+//    }
+
 
     @GetMapping("/shipping")
     public String getShipping() {
@@ -53,6 +75,61 @@ public class OrdersController {
             e.printStackTrace();
         }
         return "omiseSuccess"; 
+    }
+    
+    
+    @GetMapping("/payment")
+    public String bill(ModelMap modelmap, HttpServletRequest request){
+        
+        String fullname = request.getParameter("full_name");
+//        String email = request.getParameter("email");
+//        String phone = request.getParameter("phone_number");
+        System.out.println("get success user");
+        
+        String address = request.getParameter("address");
+        System.out.println("test save address success");
+        
+        String totalPrice = request.getParameter("total_price");
+//        String quantity = request.getParameter("quantity");
+//        String size = request.getParameter("size");
+        System.out.println("save detail success test");
+        
+        Users user = new Users();
+        user.setUserId(1);
+        user.setFullName(fullname);
+        user.setEmail("test@hotmail.com");
+        user.setPhoneNumber("1234567890");
+        user.setPassword("1234");
+        user.setUserName("Test");
+        userService.save(user);
+        System.out.println("save user successs test");
+        
+        Orders order = new Orders();
+        order.setOrderId(3);
+        order.setQuantity(1);
+        order.setSize('s');
+        order.setAddress(address);
+
+        order.setTotalPrice(Double.parseDouble(totalPrice));
+//        order.setProductId(0);
+//        order.setUserId(0);
+        orderService.save(order);
+        System.out.println("save order success test");
+        
+//        int productId = 1;
+//        Product product = new Product();
+//        product.setProductId(productId);
+//        System.out.println("save product success");
+//        
+//        System.out.println("ID USER: "+user.getUserId()+" ORDER ID : "+order.getOrderId());
+//
+//        System.out.println("user: id"+userModel.getUserId()+" "+email+" "+ phonenumber+" "+firstname+" "+ lastname);
+//        System.out.println("address: id "+userModel.getUserId()+" "+alley+" "+ city+" "+country+" "+ district+" "+ homeNo+" "+road+" "+ subDistrict);
+//        System.out.println("order: id "+userModel.getUserId()+" total price: "+totalPrice+" type ship : "+ typeOfShipping+" "+java.time.LocalDate.now()+" quantity : ");
+//        System.out.println("orderdetail: quantity "+" order id:  "+ orderModel.getOrderId());
+//        
+//        
+        return "Shipping";
     }
 
 }

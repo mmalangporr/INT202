@@ -124,12 +124,6 @@
 
         </style>
     </head>
-
-
-
-
-</head>
-
 <body>
 
 
@@ -143,27 +137,24 @@
     <hr>
 
 
-
-
         <p id="p1"><b>Shipping</b></p>
-        
-        <p id="p2">Enter your Address</p>
 
-        <div>
-            <p id="p2">Name</p>
-            <input type="text" id="info" name="Name" placeholder="Your Name...">
-                <p id="p2">Address</p>
-                <input type="text" id="address" name="Address" placeholder="Your Address...">
+        <form th:action="@{/payment}" method ="GET">
+            <div>
+                <p id="p2">Name</p>
+                <input type="text" id="info" name="full_name" placeholder="Your Name...">
+                    <p id="p2">Address</p>
+                    <input type="text" id="address" name="address" placeholder="Your Address...">
                         </div>      
-                        
-        <hr>
+
+                        <hr>
 
                             <div th:each="shippingdetail : ${shippingDetail}" class="container">
                                 <p id="p2">Select Shipping Method</p>
-                                <form id="payment">
-                                    <input type="radio" name="payment" value="Kerry" checked>Kerry<br><br>
-                                                <input type="radio" name="payment" value="Local Post">Local Post
-                                                    </form>
+                                
+<!--                                    <input type="radio" name="payment" value="Kerry" checked>Kerry<br><br>
+                                                <input type="radio" name="payment" value="Local Post">Local Post-->
+                                                    
                                                     <br>
                                                         <br>
                                                             <hr>
@@ -171,9 +162,12 @@
                                                                     <img id="pics" th:src="${shippingdetail.productImage}" style="width:100%" >
                                                                 </div>
                                                                 <p id="item">Item : <span id="prodName" th:text="${shippingdetail.productName}"></span></p>    
-                                                                <p id="item">Total : <span id="prodPrice" th:text="${shippingdetail.productPrice}"></span></p>
-                                                                <input type="submit" value="Continue">
+                                                                <p id="item">Total : <span id="prodPrice" th:text="${shippingdetail.productPrice}" name="total_price"></span></p>
+                                                               <input type="hidden" th:value="${shippingdetail.productPrice}" name="total_price">>
+                                                                <input type="submit" value="Continue" >
+                                                                    
                                                                     </div>
+                                                                    </form>
 
                                                                     </body>
 

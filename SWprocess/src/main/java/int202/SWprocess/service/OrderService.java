@@ -5,6 +5,7 @@
  */
 package int202.SWprocess.service;
 
+import int202.SWProcess.model.Orders;
 import int202.SWProcess.model.Product;
 import int202.SWprocess.repository.OrdersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,13 @@ public class OrderService {
     @Autowired
     private OrdersRepository OrdersRepo;
     
+    
+    public Orders save(Orders order){
+        return OrdersRepo.save(order);
+    }
+    
+    public Orders getById(int orderId) {
+        return OrdersRepo.findByOrderId(orderId);
+    }
     
 }

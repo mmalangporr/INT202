@@ -6,6 +6,7 @@
 package int202.SWprocess.repository;
 
 import int202.SWProcess.model.Orders;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +16,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface OrdersRepository extends JpaRepository<Orders, Long>{
-    
-//    public List<Product> findBy
-    
+
+        
+    public Orders findByOrderId(int orderId);
 }
+    
+
