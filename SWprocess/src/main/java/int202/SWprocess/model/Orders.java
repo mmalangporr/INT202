@@ -28,9 +28,6 @@ public class Orders extends SerializableSerializer {
     private long orderId;
     
     @NotBlank
-    private double totalPrice;
-    
-    @NotBlank
     private String address;
 
     private int quantity;
@@ -39,10 +36,7 @@ public class Orders extends SerializableSerializer {
     private char size;
     
     @NotBlank
-    private long productId;
-    
-    @NotBlank
-    private long userId;
+    private double totalPrice;
 
     public long getOrderId() {
         return orderId;
@@ -50,14 +44,6 @@ public class Orders extends SerializableSerializer {
 
     public void setOrderId(long orderId) {
         this.orderId = orderId;
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
     }
 
     public String getAddress() {
@@ -84,25 +70,13 @@ public class Orders extends SerializableSerializer {
         this.size = size;
     }
 
-    public long getProductId() {
-        return productId;
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setProductId(long productId) {
-        this.productId = productId;
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-    public long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(long userId) {
-        this.userId = userId;
-    }
-
-    @Override
-    public String toString() {
-        return "Orders{" + "orderId=" + orderId + ", totalPrice=" + totalPrice + ", address=" + address + ", quantity=" + quantity + ", size=" + size + ", productId=" + productId + ", userId=" + userId + '}';
-    }
-
+    
 }
