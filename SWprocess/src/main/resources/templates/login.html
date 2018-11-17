@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmnls:th="http://thymeleaf.org">
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/cartCss.css">
+            <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+            <style> 
+                body, html {
+                    height: 100%;
+                    margin: 0;
+                    font-family: Arial, Helvetica, sans-serif;
+                    background-color: white;
+                }
+
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 15px;
+                    display: flex;
+                }
+
+                .left-column {
+                    width: 30%;
+                    position: relative;
+                    padding-top: 50px;
+                    margin-left: 30px;
+                    background-color: white;
+
+                }
+
+                .right-column {
+                    width: 100%;
+                    margin-top: 60px;
+                    margin-left: 250px;
+                    padding-right: 60px;
+
+                }
+
+                .product-description {
+                    border-bottom: 1px solid #E1E8EE;
+                    margin-bottom: 20px;
+                }
+
+                .product-description span {
+                    font-size: 12px;
+                    color: #358ED7;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                }
+
+                .product-description h1 {
+                    font-weight: 300;
+                    font-size: 52px;
+                    color: #43484D;
+                    letter-spacing: -2px;
+                }
+
+                .product-description p {
+                    font-size: 16px;
+                    font-weight: 300;
+                    color: #86939E;
+                    line-height: 24px;
+                }
+
+                #checkout {
+                    border: none;
+                    outline: 0;
+                    padding: 12px;
+                    color: white;
+                    background-color: #000;
+                    text-align: center;
+                    cursor: pointer;
+                    width: 100%;
+                    font-size: 18px;
+
+
+                }
+
+                ul {
+                    list-style-type: none;
+                    margin-top: 10px;
+                    padding: 0;
+                    overflow: hidden;
+                    background-color: white;
+                }
+
+                li {
+                    float: right;
+
+                }
+
+                font {
+                    font-family: Helvetica;
+                }
+                select{
+                    margin-right: 60%;
+                    height: 40px;
+                    width: 100px;
+                }
+                input[type=text] {
+                    width: 100%;
+                    box-sizing: border-box;
+                    border: 2px solid #ccc;
+                    border-radius: 4px;
+                    font-size: 16px;
+                    background-color: white;
+                    background-image: url('searchicon.png');
+                    background-position: 10px 10px; 
+                    background-repeat: no-repeat;
+                    padding: 12px 20px 12px 40px; 
+                }
+                a.search{
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 50pt;
+                    border-radius:25pt;
+
+                }
+
+                #product{
+                    max-width: 300px;
+                }
+                #productId{
+                    width: 30%;
+                    background-color:#101652;
+                    color: white;
+                    margin-left: 70%;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    border-radius: 20px;
+                    font-size: 20px; 
+                }
+
+            </style>
+
+    </head>
+
+    <body>
+
+        <table style="width:100%">
+            <tr>
+                <th style="width: 5%"></th>
+                <td><a class="search"><b>Sha</b>lala</a></td>
+                <th colspan="2">
+
+
+                    <form action="get" th:action="@{/search}" th:object="${search}">
+                        <input style="width: 70% ; margin-left: 20%; " type="text" name="search" id="search" placeholder="Search.."></input>
+                        <th style="width: 50px">
+                            <button class="iconn" type="submit" style="margin-left:0px;border-radius: 20% ;background-color: #F5F5F5; "><img src="https://image.flaticon.com/icons/svg/34/34202.svg"
+                                                                                                                                             width="30" height="30" ></button>
+                    </form>
+                </th>
+
+                <script>
+                    var iniFbStatus = false;
+                    var fbID = "";
+                    var fbName = "";
+                    var fbEmail = "";
+
+                    window.fbAsyncInit = function () {
+                        FB.init({
+                            appId: '2253950461547740',
+                            cookie: true,
+                            xfbml: true,
+                            version: '3.2'
+                        });
+
+                        FB.AppEvents.logPageView();
+
+                    };
+
+                    (function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) {
+                            return;
+                        }
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "https://connect.facebook.net/th_TH/sdk.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+
+                    function statusChangeCallback(response) {
+                        if (iniFbStatus === false) {
+                            fbID = response.authResponse.userID;
+                            if (response.status === 'connected') {
+                                getCurrentUserInfo(response);
+                            } else {
+                                FB.login(function (response) {
+                                    if (response.authResponse) {
+                                        getCurrentUserInfo(response);
+                                    } else {
+                                        console.log('Auth cancelled.');
+                                    }
+                                }, {scope: 'email'});
+                            }
+                        }
+                        iniFbStatus = true;
+                    }
+
+                    function getCurrentUserInfo() {
+                        FB.api('/me?fields=name,email', function (userInfo) {
+                            fbName = userInfo.name;
+                            fbEmail = userInfo.email;
+
+                            console.log(fbID);
+                            console.log(fbName);
+                            console.log(fbEmail);
+                        });
+                    }
+
+                    function checkLoginState() {
+                        FB.getLoginStatus(function (response) {
+                            statusChangeCallback(response);
+                        });
+                    }
+                </script>
+
+                เข้าสู่ระบบด้วย Facebook
+                <fb:login-button 
+                    scope="public_profile,email"
+                    onlogin="checkLoginState();">
+                </fb:login-button>
+
+
+                </body>
+
+
+                </html>
