@@ -10,33 +10,48 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            body{
-                margin: 15%;
-            }
+
             p{
                 color: green;
                 text-align: center;
                 font-size: 80px;
-                font-family: Helvetica;
+                font-family: sans-serif;
             }
             input[type="submit"]{
-                width: 60%;
-                margin-left: 20%;
-                border: none;
-                outline: 0;
-                padding: 12px;
-                text-align: center;
-                cursor: pointer;
-                font-size: 18px;
+                width: 40%;
+                background-color:#101652;
                 color: white;
-                background-color: #000000 ;
+                margin-left: 30%;
+                padding: 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                border-radius: 20px;
+                font-size: 20px;
+            }
+            a.search{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 50pt;
+                border-radius:25pt;
+
+            }
+            #success{
+                margin: 10%;
             }
         </style>
     </head>
     <body>
+         <table style="width:100%">
+                        <tr>
+                            <th style="width: 5%"></th>
+                            <td><a class="search"><b>Sha</b>lala</a></td>
+                    </table>
+                    <hr>
+        <div id="success">
         <p>Payment success</p>
         <form action="/index">
-        <input type="submit" name="back" value="Back to Shalala">
+            <input type="submit" name="back" value="Back to Shalala">
         </form>
+        </div>
     </body>
 </html>
