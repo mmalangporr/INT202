@@ -26,11 +26,4 @@ public interface ProductRepository extends JpaRepository<Product, Long>{
     public List<Product> findByProductId(long productId);
     public List<Product> findByProductNameLike(String productName);
     
-    @Query("SELECT productImage FROM Product where image = :image")
-    public String findImageById(@Param("image")String image);
-     @Query(value = "select productName from Product where productId = ?1", nativeQuery = true)
-    public Product findProductNameByID(String productName);
-//    public Optional<Product> findAllProduct(long productId,String productName,String productDetail,String productImage,double productPrice);
-    
-    
 }
