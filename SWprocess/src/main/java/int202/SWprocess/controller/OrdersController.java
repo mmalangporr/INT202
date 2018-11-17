@@ -27,10 +27,10 @@ public class OrdersController {
     @Autowired
     private OrderService orderService;
 
-    @GetMapping("/payment")
+    /*@GetMapping("/payment")
     public String getOrders() {
         return "payment";
-    }
+    }*/
 
     @GetMapping("/shipping")
     public String getShipping() {
@@ -41,7 +41,7 @@ public class OrdersController {
     public String test1(HttpServletRequest request) throws ClientException, IOException, OmiseException {
         Client client = new Client("pkey_test_5dyabo9iygs2rte1srz","skey_test_5dyabo9jig632rot8ac");
         String a = request.getParameter("description");
-        long amount = (long)(Double.parseDouble(a.substring(a.indexOf("฿")+1,a.length()))*100);
+        long amount = (long)(Double.parseDouble(a)*100);
         try {
             Charge charge = client.charges().create(new Charge.Create()
                     .amount(amount)

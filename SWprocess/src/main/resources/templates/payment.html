@@ -51,6 +51,11 @@
                         border-radius: 20px;
                         font-size: 28px;  
                     }
+                    .checkout-form > input[type=text]{
+                        width: 23%;
+                        margin-left: 71%;
+                        margin-bottom: 10px; 
+                    }
                 </style>
                 <title>Shalala payment</title>
 
@@ -94,20 +99,21 @@
                                                 </div>
                                                 <img src="https://www.goonvpn.com/img/bank_support.png" style="margin-left: 280px" height="130" width="200">
                                                     </form>
+                                                        <br>
                                                         <hr>
-                                                            <h1 style="margin-left: 55%">Total :</h1>
-                                                            <br>
 
-                                                                <!--Omise แบบ manaul-->
                                                                 <form class="checkout-form" name="checkoutForm" method="GET" th:action="@{/omiseInProgess}">
-                                                                    <input type="hidden" name="description" value="Product order ฿4000.00" />
+                                                                     <div th:each="shippingPayment : ${shippingPayment}" class="container">
+                                                                        <h1 style="margin-left: 71%">Total : <span th:text="${shippingPayment.productPrice}"></span></h1>
+                                                                        <input type="hidden" name="description" th:value="${shippingPayment.productPrice}" >
+                                                                    </div>
                                                                     <script type="text/javascript" src="https://cdn.omise.co/card.js"
                                                                             data-key="pkey_test_5dyabo9iygs2rte1srz"
                                                                             data-image="https://image.flaticon.com/icons/svg/1055/1055659.svg"
                                                                             data-frame-label="Shalala E-Commerce"
                                                                             data-button-label="Continue"
                                                                             data-submit-label="Submit"
-                                                                            data-amount="400000"
+                                                                            data-amount="10025"
                                                                             data-currency="thb"
                                                                             >
                                                                     </script>

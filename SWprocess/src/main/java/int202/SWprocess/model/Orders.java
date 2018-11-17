@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -32,10 +33,10 @@ public class Orders extends SerializableSerializer {
 
     private int quantity;
     
-    @NotBlank
+    @NotNull
     private char size;
     
-    @NotBlank
+    @NotNull
     private double totalPrice;
 
     public long getOrderId() {
