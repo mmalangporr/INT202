@@ -54,7 +54,7 @@
                                     border-radius: 4px;
                                     cursor: pointer;
                                     border-radius: 20px;
-                                    font-size: 25px;  
+                                    font-size: 23px;  
                                 
                                 }
                                 
@@ -82,7 +82,7 @@
                                     font-size: 25px;
                                     font-family: "Times New Roman", Times, serif;
                                     color:midnightblue;
-                                    margin-left: 50%
+                                    margin-left: 7%
                                 }
                                  input[type=text] {
                             width: 100%;
@@ -168,7 +168,8 @@
                         <th><input type="text" id="info" name="Zipcode" placeholder="Zip Code..."></th>
                 </tr>
         </table>
-        <hr>      
+        <hr>
+       
         <div th:each="shippingdetail : ${shippingDetail}" class="container">
             <p id="p2">Select Shipping Method</p>
             <form id="payment">
@@ -176,8 +177,8 @@
                 <input type="radio" name="payment" value="Local Post">Local Post
             </form>
             <!-- Image(Left-Column) -->
-            <p id="item">Item : <span id="prodName" th:text="${shippingdetail.productName}"></span></p>    
             <hr>
+            <p id="item">Item : <span id="prodName" th:text="${shippingdetail.productName}"></span></p>    
             <p id="item">Total : <span id="prodPrice" th:text="${shippingdetail.productPrice}"></span></p>
             <input type="submit" value="Continue">
         </div>
