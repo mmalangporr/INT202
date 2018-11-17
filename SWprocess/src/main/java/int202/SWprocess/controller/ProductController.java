@@ -62,6 +62,7 @@ public class ProductController {
         productService.getProductById(productId);
         return productId;
     }
+    
     @GetMapping("/Shipping/{id}")
     public String shippingDetail(ModelMap model,@PathVariable("id") int id){
         model.addAttribute("shippingDetail",productService.getProductById(id));
