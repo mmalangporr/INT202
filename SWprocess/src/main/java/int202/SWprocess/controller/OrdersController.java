@@ -46,7 +46,11 @@ public class OrdersController {
     public String getShipping() {
         return "shipping";
     }
-
+    
+    @GetMapping("/orders")
+    public String getOrders(){
+        return "orders";
+    }
     @GetMapping("/omiseInProgess")
     public String test1(HttpServletRequest request) throws ClientException, IOException, OmiseException {
         Client client = new Client("pkey_test_5dyabo9iygs2rte1srz", "skey_test_5dyabo9jig632rot8ac");
