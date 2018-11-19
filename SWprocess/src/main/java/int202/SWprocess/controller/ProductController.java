@@ -5,7 +5,7 @@
  */
 package int202.SWProcess.controller;
 
-import int202.SWProcess.model.Product;
+import int202.SWProcess.model.Products;
 import int202.SWprocess.service.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

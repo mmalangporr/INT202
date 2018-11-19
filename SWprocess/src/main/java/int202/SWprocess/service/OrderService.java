@@ -6,7 +6,7 @@
 package int202.SWprocess.service;
 
 import int202.SWProcess.model.Orders;
-import int202.SWProcess.model.Product;
+import int202.SWProcess.model.Products;
 import int202.SWprocess.repository.OrdersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -5,7 +5,7 @@
  */
 package int202.SWprocess.service;
 
-import int202.SWProcess.model.Product;
+import int202.SWProcess.model.Products;
 import int202.SWprocess.repository.ProductRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductService {
     
-    private Product[] cart;
+    private Products[] cart;
     private int itemCount;
     private double totalPrice;
     private int capacity;
@@ -29,30 +29,30 @@ public class ProductService {
     private ProductRepository productRepo;
 
     
-    public List<Product> getAllProducts(){
-        List<Product> p = productRepo.findAll();
+    public List<Products> getAllProducts(){
+        List<Products> p = productRepo.findAll();
         return p;
     }
     
     public ProductService(){
         capacity = 5;
-        cart = new Product[capacity];
+        cart = new Products[capacity];
         itemCount = 0;
         totalPrice = 0.0;
     }
     
 
-    public List<Product> getProductById(long productId){
-        List<Product> p = productRepo.findByProductId(productId);
+    public List<Products> getProductById(long productId){
+        List<Products> p = productRepo.findByProductId(productId);
         return p;
     }
     
-    public List<Product> getProductByName(String productName){
-        List<Product> p2 = productRepo.findByProductNameLike("%"+productName+"%");
+    public List<Products> getProductByName(String productName){
+        List<Products> p2 = productRepo.findByProductNameLike("%"+productName+"%");
         return p2;
     }
     
-    public List<Product> getAllSearch(String search){
+    public List<Products> getAllSearch(String search){
         try{
             long id = Integer.parseInt(search);
             return getProductById(id);
@@ -63,7 +63,7 @@ public class ProductService {
     }
         
     private void increaseSizeCart(){
-        Product[] temp = new Product[capacity+3];
+        Products[] temp = new Products[capacity+3];
         for(int i=0; i < capacity; i++){
             temp[i] = cart[i];
         }

@@ -13,6 +13,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -28,9 +30,6 @@ public class Orders extends SerializableSerializer {
     @Id
     private long orderId;
     
-    @NotBlank
-    private String address;
-    
     private int quantity;
     
     @NotNull
@@ -39,20 +38,23 @@ public class Orders extends SerializableSerializer {
     @NotNull
     private double totalPrice;
 
+    @ManyToOne(fetch=FetchType.LAZY,optional=false)
+    @JoinColumn(name="product_id",nullable=false)
+    private Products productId;
+    
+    @ManyToOne(fetch=FetchType.LAZY,optional=false)
+    @JoinColumn(name="user_id",nullable=false)
+    private Users UserId;
+      
+    @NotBlank
+    private String address;
+
     public long getOrderId() {
         return orderId;
     }
 
     public void setOrderId(long orderId) {
         this.orderId = orderId;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public int getQuantity() {
@@ -79,5 +81,36 @@ public class Orders extends SerializableSerializer {
         this.totalPrice = totalPrice;
     }
 
+    public Products getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Products productId) {
+        this.productId = productId;
+    }
+
+    public Users getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(Users UserId) {
+        this.UserId = UserId;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    
+    
+    @Override
+    public String toString() {
+        return "Orders{" + "orderId=" + orderId + ", quantity=" + quantity + ", size=" + size + ", totalPrice=" + totalPrice + ", productId=" + productId + ", UserId=" + UserId + ", address=" + address + '}';
+    }
+    
     
 }

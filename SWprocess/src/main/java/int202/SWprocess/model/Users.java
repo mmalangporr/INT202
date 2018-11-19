@@ -30,7 +30,7 @@ public class Users extends SerializableSerializer{
     private long userId;
     
     @NotBlank
-    private String fullName;
+    private String name;
     
     @NotBlank
     private String userName;
@@ -52,12 +52,12 @@ public class Users extends SerializableSerializer{
         this.userId = userId;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getName() {
+        return name;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUserName() {
@@ -94,7 +94,7 @@ public class Users extends SerializableSerializer{
 
     @Override
     public String toString() {
-        return "Users{" + "userId=" + userId + ", fullName=" + fullName + ", userName=" + userName + ", email=" + email + ", password=" + password + ", phoneNumber=" + phoneNumber + '}';
+        return "Users{" + "userId=" + userId + ", name=" + name + ", userName=" + userName + ", email=" + email + ", password=" + password + ", phoneNumber=" + phoneNumber + '}';
     }
     
     

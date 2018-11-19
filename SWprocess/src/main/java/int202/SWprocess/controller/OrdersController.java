@@ -11,7 +11,7 @@ import co.omise.models.Charge;
 import co.omise.models.OmiseException;
 import int202.SWProcess.model.Orders;
 import int202.SWProcess.model.Users;
-import int202.SWProcess.model.Product;
+import int202.SWProcess.model.Products;
 import int202.SWprocess.service.OrderService;
 import int202.SWprocess.service.ProductService;
 import int202.SWprocess.service.UserService;
@@ -91,7 +91,7 @@ public class OrdersController {
         
         Users user = new Users();
         user.setUserId(1);
-        user.setFullName(fullname);
+        user.setName(fullname);
         user.setEmail("test@hotmail.com");
         user.setPhoneNumber("1234567890");
         user.setPassword("1234");
