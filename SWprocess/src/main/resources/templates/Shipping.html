@@ -22,6 +22,7 @@
                 font-family: "Times New Roman", Times, serif;
                 color:midnightblue;
                 margin-left: 250px;
+                margin-bottom: -3%;
 
             }    
             #p2 {
@@ -171,12 +172,7 @@
                                                                 <img src="https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/9c/f2/b6/9cf2b6fc-230b-acc7-2549-5fd3a3803fc4/source/512x512bb.jpg" style="margin-left: -250px;
                                                                     margin-top:-70px;" height="130" width="200">
                                                                 </div>
-                                                                <div class="left">
-
-
-                                                                    <img id="pics" th:src="${shippingdetail.productImage}" style="width:100%" >
-
-                                                                </div>
+                                                                <hr>
                                                                 <p id="item">Item : <span id="prodName" th:text="${shippingdetail.productName}"></span></p>    
                                                                 <p id="item">Total : <span id="prodPrice" th:text="${shippingdetail.productPrice}" name="total_price"></span></p>
                                                                <input type="hidden" th:value="${shippingdetail.productPrice}" name="total_price">
