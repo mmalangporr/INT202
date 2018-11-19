@@ -23,58 +23,56 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Controller
 public class ProductController {
-    
+
     @Autowired
     private ProductService productService;
-    
+
     @GetMapping("/index")
-    public String getAllProduct(ModelMap model){
-        model.addAttribute("allProduct",productService.getAllProducts());
+    public String getAllProduct(ModelMap model) {
+        model.addAttribute("allProduct", productService.getAllProducts());
         return "index";
-    }  
+    }
 
     @RequestMapping("/search")
-    public String searchPro(@RequestParam String search){
-        productService.getAllSearch(search); 
+    public String searchPro(@RequestParam String search) {
+        productService.getAllSearch(search);
         return search;
     }
-    
+
     @GetMapping("/search")
-    public String searchProduct(ModelMap model,@RequestParam String search){
-        model.addAttribute("searchProduct",productService.getAllSearch(search));
+    public String searchProduct(ModelMap model, @RequestParam String search) {
+        model.addAttribute("searchProduct", productService.getAllSearch(search));
         return "search";
     }
-    
-    
-     @RequestMapping("/productdetail")
-    public long getProductDetail(@RequestParam long productId){
+
+    @RequestMapping("/productdetail")
+    public long getProductDetail(@RequestParam long productId) {
         productService.getProductById(productId);
         return productId;
     }
-   
+
     @GetMapping("productdetail/{id}")
-    public String productDetail(ModelMap model,@PathVariable("id") int id){
-        model.addAttribute("productDetail",productService.getProductById(id));
+    public String productDetail(ModelMap model, @PathVariable("id") int id) {
+        model.addAttribute("productDetail", productService.getProductById(id));
         return "productdetail";
     }
-    
+
     @RequestMapping("/Shipping")
-    public long shippingProduct(@RequestParam long productId){
+    public long shippingProduct(@RequestParam long productId) {
         productService.getProductById(productId);
         return productId;
     }
-    
+
     @GetMapping("/Shipping/{id}")
-    public String shippingDetail(ModelMap model,@PathVariable("id") int id){
-        model.addAttribute("shippingDetail",productService.getProductById(id));
+    public String shippingDetail(ModelMap model, @PathVariable("id") int id) {
+        model.addAttribute("shippingDetail", productService.getProductById(id));
         return "Shipping";
     }
-    
+
     @GetMapping("/payment/{id}")
-    public String shippingPayment(ModelMap model,@PathVariable("id") int id){
-        model.addAttribute("shippingPayment",productService.getProductById(id));
+    public String shippingPayment(ModelMap model, @PathVariable("id") int id) {
+        model.addAttribute("shippingPayment", productService.getProductById(id));
         return "payment";
     }
 
-    
 }

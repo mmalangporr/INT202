@@ -36,23 +36,11 @@ public class OrdersController {
     @Autowired
     OrderService orderService;
 
-
-    /*@GetMapping("/payment")
-    public String getOrders() {
-        return "payment";
-    }*/
-
     @Autowired
     UserService userService;
 
     @Autowired
     ProductService productService;
-
-//    @GetMapping("/payment")
-//    public String getOrders() {
-//        return "payment";
-//    }
-
 
     @GetMapping("/shipping")
     public String getShipping() {
@@ -61,9 +49,9 @@ public class OrdersController {
 
     @GetMapping("/omiseInProgess")
     public String test1(HttpServletRequest request) throws ClientException, IOException, OmiseException {
-        Client client = new Client("pkey_test_5dyabo9iygs2rte1srz","skey_test_5dyabo9jig632rot8ac");
+        Client client = new Client("pkey_test_5dyabo9iygs2rte1srz", "skey_test_5dyabo9jig632rot8ac");
         String a = request.getParameter("description");
-        long amount = (long)(Double.parseDouble(a)*100);
+        long amount = (long) (Double.parseDouble(a) * 100);
         try {
             Charge charge = client.charges().create(new Charge.Create()
                     .amount(amount)
@@ -74,13 +62,12 @@ public class OrdersController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "omiseSuccess"; 
+        return "omiseSuccess";
     }
-    
-    
+
     @GetMapping("/payment")
-    public String bill(ModelMap modelmap, HttpServletRequest request){
-        
+    public String bill(ModelMap modelmap, HttpServletRequest request) {
+
         String fullname = request.getParameter("full_name");
 //      String email = request.getParameter("email");
 //      String phone = request.getParameter("phone_number");   
@@ -88,7 +75,7 @@ public class OrdersController {
         String totalPrice = request.getParameter("total_price");
 //      String quantity = request.getParameter("quantity");
 //      String size = request.getParameter("size");
-        
+
         Users user = new Users();
         user.setUserId(1);
         user.setName(fullname);
@@ -98,7 +85,7 @@ public class OrdersController {
         user.setUserName("Test");
         userService.save(user);
         System.out.println("save user successs test");
-        
+
         Orders order = new Orders();
         order.setOrderId(3);
         order.setQuantity(1);
@@ -106,9 +93,9 @@ public class OrdersController {
         order.setAddress(address);
         order.setTotalPrice(Double.parseDouble(totalPrice));
         orderService.save(order);
-        
+
         System.out.println("save order success test");
- 
+
         return "Shipping";
     }
 
