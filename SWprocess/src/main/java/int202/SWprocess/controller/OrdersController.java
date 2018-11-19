@@ -73,6 +73,7 @@ public class OrdersController {
 //      String phone = request.getParameter("phone_number");   
         String address = request.getParameter("address");
         String totalPrice = request.getParameter("total_price");
+        String ProductId = request.getParameter("product_Id");
 //      String quantity = request.getParameter("quantity");
 //      String size = request.getParameter("size");
 
@@ -92,6 +93,10 @@ public class OrdersController {
         order.setSize('s');
         order.setAddress(address);
         order.setTotalPrice(Double.parseDouble(totalPrice));
+        order.setUserId(user);
+        Products p = new Products();
+        p.setProductId(Long.parseLong(ProductId));
+        order.setProductId(p);
         orderService.save(order);
 
         System.out.println("save order success test");
