@@ -42,10 +42,7 @@ public class OrdersController {
     @Autowired
     ProductService productService;
 
-    @GetMapping("/shipping")
-    public String getShipping() {
-        return "shipping";
-    }
+    
     
     @GetMapping("/orders")
     public String getOrders(){
@@ -68,8 +65,19 @@ public class OrdersController {
         }
         return "omiseSuccess";
     }
-
-    @GetMapping("/payment")
+    
+    @RequestMapping("/paymentsize")
+    public char productsize(@RequestParam char size){
+        return size;
+    }
+    
+    @RequestMapping("/paymentquantity")
+    public int productquantity(@RequestParam int quantity){
+        return quantity;
+    }
+    
+    
+    @PostMapping("/payment")
     public String bill(ModelMap modelmap, HttpServletRequest request) {
 
         String fullname = request.getParameter("full_name");
@@ -78,8 +86,9 @@ public class OrdersController {
         String address = request.getParameter("address");
         String totalPrice = request.getParameter("total_price");
         String ProductId = request.getParameter("product_Id");
-//      String quantity = request.getParameter("quantity");
-//      String size = request.getParameter("size");
+      String quantity = request.getParameter("quantity");
+      String s = request.getParameter("size");
+      char size = s.charAt(0);
 
         Users user = new Users();
         user.setUserId(1);
@@ -93,8 +102,8 @@ public class OrdersController {
 
         Orders order = new Orders();
         order.setOrderId(3);
-        order.setQuantity(1);
-        order.setSize('s');
+        order.setQuantity(Integer.parseInt(quantity));
+        order.setSize(size);
         order.setAddress(address);
         order.setTotalPrice(Double.parseDouble(totalPrice));
         order.setUserId(user);
