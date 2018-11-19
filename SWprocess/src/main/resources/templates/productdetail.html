@@ -192,8 +192,7 @@ input[type=text] {
                     <!--<p th:text="${productdetail.productDetails}"></p>-->
                     <p th:text="${productDetail.productDetail}"></p>
                 </div>
-<<<<<<< Updated upstream
-                
+
                 
                 <form>
                     <p>Size (s,m,l)</p>   
@@ -201,13 +200,12 @@ input[type=text] {
                 </form>
                     
                     <br>
-=======
                     <form th:action="@{/Shipping}" method ="GET">
                         <p>Size </p>   
                         <input style="width: 20%; font-size: 16px;" type="text" name="size" id="size" placeholder="Size.."></input>
 
                         <br>
->>>>>>> Stashed changes
+
                         <p>Quantity </p> 
                         <input type="number" name="quantity" max="10" min="1" placeholder="Quantity" style="width: 30%">       
                             <input type="hidden" th:value="${products.productId}" name="productId">
