@@ -8,6 +8,7 @@ package int202.SWprocess.service;
 import int202.SWProcess.model.Orders;
 import int202.SWProcess.model.Products;
 import int202.SWprocess.repository.OrdersRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,12 @@ public class OrderService {
     
     public Orders getById(int orderId) {
         return OrdersRepo.findByOrderId(orderId);
+    }
+    
+    
+    public List<Orders> getAllOrders(){
+        List<Orders> o = OrdersRepo.findAll();
+        return o;
     }
     
 }
