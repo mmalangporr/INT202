@@ -6,6 +6,7 @@
 package int202.SWProcess.controller;
 
 import int202.SWProcess.model.Products;
+import int202.SWprocess.service.ProductDetailService;
 import int202.SWprocess.service.ProductService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    ProductService productService;
+    
+    @Autowired
+    ProductDetailService productDetailService;
 
     @GetMapping("/index")
     public String getAllProduct(ModelMap model) {
@@ -53,7 +57,10 @@ public class ProductController {
 
     @GetMapping("productdetail/{id}")
     public String productDetail(ModelMap model, @PathVariable("id") int id) {
-        model.addAttribute("productDetail", productService.getProductById(id));
+        model.addAttribute("products", productService.getProductById(id));
+        Products p = new Products();
+        p.setProductId(id);
+        model.addAttribute("productDetail", productDetailService.getProductDetail(p));
         return "productdetail";
     }
 

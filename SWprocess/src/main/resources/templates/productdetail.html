@@ -167,15 +167,17 @@ input[type=text] {
                     
         
         
-            <div th:each="productdetail : ${productDetail}" class="container">
+            <div th:each="products : ${products}" class="container">
+                <div th:each="productDetail : ${productDetail}" class="container">
             <div class="left-column" >
-                <img th:src="${productdetail.productImage}" id="product">
+                <img th:src="${products.productImage}" id="product">
             </div>
             <div class="right-column">
                 <div class="product-description">
                     <span>Headphones</span>
-                    <h1 th:text="${productdetail.productName}"></h1>
-                    <p th:text="${productdetail.productDetails}"></p>
+                    <h1 th:text="${products.productName}"></h1>
+                    <!--<p th:text="${productdetail.productDetails}"></p>-->
+                    <p th:text="${productDetail.productDetail}"></p>
                 </div>
                 <select>
                     <option value="S">S</option>
@@ -184,10 +186,11 @@ input[type=text] {
                     <option value="XL">XL</option>
                     <option value="XXL">XXL</option>
                 </select>
-            <a th:href="${'/Shipping/' + productdetail.productId}">
+            <a th:href="${'/Shipping/' + products.productId}">
                 <button type="hidden" id="productId" name="productId" >Buy Now</button>
             </a>
             </div>
+                    </div>
             </div>
       
 
