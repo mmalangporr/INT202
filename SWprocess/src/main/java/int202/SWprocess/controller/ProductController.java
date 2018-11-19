@@ -9,6 +9,7 @@ import int202.SWProcess.model.Products;
 import int202.SWprocess.service.ProductDetailService;
 import int202.SWprocess.service.ProductService;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -64,14 +65,21 @@ public class ProductController {
         return "productdetail";
     }
 
-    @RequestMapping("/Shipping")
+  /*  @RequestMapping("/Shipping")
     public long shippingProduct(@RequestParam long productId) {
         productService.getProductById(productId);
         return productId;
-    }
+    }*/
 
-    @GetMapping("/Shipping/{id}")
-    public String shippingDetail(ModelMap model, @PathVariable("id") int id) {
+    @GetMapping("/Shipping")
+    public String shippingDetail(ModelMap model,HttpServletRequest request) {
+        String productId = request.getParameter("productId");
+        String size = request.getParameter("size");
+        String quantity = request.getParameter("quantity");
+        int id = Integer.parseInt(productId);
+        System.out.println(id+" testttttttttttttttttttttttttttrtt");
+        model.addAttribute("size",size);
+        model.addAttribute("quantity",quantity);
         model.addAttribute("shippingDetail", productService.getProductById(id));
         return "Shipping";
     }
