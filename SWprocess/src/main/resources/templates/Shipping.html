@@ -151,13 +151,13 @@
         <form th:action="@{/payment}" method ="POST">
             <div>
                 <p id="p2"><b>Name</p>
-                <input type="text" id="info" name="full_name" placeholder="Your Name...">
+                <input type="text" id="info" name="full_name" placeholder="Your Name..." required="true">
                     <p id="p2">Address</p>
-                    <input type="text" id="address" name="address" placeholder="Your Address...">
+                    <input type="text" id="address" name="address" placeholder="Your Address..." required="true">
                          <p id="p2">Email</p>
-                    <input type="text" id="info" name="email" placeholder="Your Email...">
+                    <input type="text" id="info" name="email" placeholder="Your Email..." required="true">
                           <p id="p2">Phone</p>
-                    <input type="text" id="info" name="email" placeholder="Your Phone...">
+                    <input type="text" id="info" name="email" placeholder="Your Phone..." required="true">
                         </div>      
 
                         <hr>
@@ -170,6 +170,7 @@
                                                     
                                                     <br>
                                                         <br>
+                                                           
                                                             <input type="radio" name="payment" value="Kerry"checked><span id="Kerry">Kerry</span><br><br>
                                                            
                                                                 <div class="left">
