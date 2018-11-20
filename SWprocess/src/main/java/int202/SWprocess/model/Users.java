@@ -26,7 +26,7 @@ import javax.validation.constraints.NotBlank;
 public class Users extends SerializableSerializer{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
     
     @NotBlank

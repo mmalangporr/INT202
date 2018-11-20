@@ -108,7 +108,7 @@
  <input type="text" value="${size}">
  <input type="text" value="${quantity}">  -->
                     
-                                                                <form class="checkout-form" name="checkoutForm" method="GET" th:action="@{/omiseInProgess}">
+                                                                <form class="checkout-form" name="checkoutForm" method="Post" th:action="@{/omiseInProgess}">
                                                                         <h1 style="margin-left: 71%">Total : <span th:text="${total_price}"></span></h1>
                                                                         <input type="hidden" name="description" th:value="${total_price}" >            
                                                                     <script type="text/javascript" src="https://cdn.omise.co/card.js"
@@ -121,6 +121,14 @@
                                                                             data-currency="thb"
                                                                             >
                                                                     </script>
+                                                                            <input type="hidden" name="full_name" th:value="${full_name}" >  
+                                                                             <input type="hidden" name="userId" th:value="${user.userId}" >  
+                                                                            <input type="hidden" name="size" th:value="${size}">
+                                                                                <input type="hidden" name="total_price" th:value="${total_price}" > 
+                                                                                <input type="hidden" name="orderId" th:value="${orderId}" >
+                                                                                <input type="hidden" name="product_Id" th:value="${product_Id}" > 
+                                                                                 
+                                                                              
                                                                     <!--the script will render <input type="hidden" name="omiseToken"> for you automatically-->
                                                                 </form>
                                                                 <br>

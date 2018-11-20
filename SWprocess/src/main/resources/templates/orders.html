@@ -62,20 +62,31 @@ and open the template in the editor.
         	<div class="left-column" >
                 <img src="" width="250" height="200">
             </div>
+            <div class="container">
+                
             <div class="right-colomn">
-            	<p>Product Name: </p>
-            	<p>Size: </p>
-            	<p>Quentity: </p>
-             	<p>Address: </p>
+                <p th:text="${userDetail.name}">Name :</p>
+                <p th:text="${userDetail.phoneNumber}">Phone number:</p>
+                <p th:text="${userDetail.email}">Email :</p>
+                <p th:text="${userDetail.userName}">Address: </p>
+            	<!--<p th:text="${productDetail.productName}">Product Name: </p>-->
+<!--                <image th:src="${productDetail.productImage}"></image>-->
+            	<p th:text="${orderDetail.address}">Size: </p>
+            	<p th:text="${orderDetail.quantity}">Quantity: </p>
+                <!--//<image th:src="${products.productImage}-->
              	<br>
              	<br>
-             	<h3>Total Price: </h3>
+             	<h3 th:text="${total_price}">Total Price: </h3>
              	<br>
-             	<form class="con" action="/index">
-             		<input type="submit" value="Continue">
-             	</form>
+                            </div>
+<!--                 <div th:each="products : ${products}" class="container">
+    <div th:each="orderdetail : ${orderDetail}">
+        <p th:text="${orderdetail.orderId}"></p>
+        <p th:text="${orderdetail.size}"></p>
+        <p th:text="${orderdetail.address}"></p>
+        <p th:text="${orderdetail.totalPrice}"></p>-->
+    </div> 
             </div>
-        </div>
 
     </body>
 </html>

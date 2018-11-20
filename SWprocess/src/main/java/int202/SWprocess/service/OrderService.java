@@ -27,7 +27,7 @@ public class OrderService {
         return OrdersRepo.save(order);
     }
     
-    public Orders getById(int orderId) {
+    public Orders getById(long orderId) {
         return OrdersRepo.findByOrderId(orderId);
     }
     

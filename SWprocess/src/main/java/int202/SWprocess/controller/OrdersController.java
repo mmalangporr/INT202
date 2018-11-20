@@ -49,14 +49,38 @@ public class OrdersController {
     public String getOrders(){
         return "orders";
     }
-    @GetMapping("/omiseInProgess")
+    
+    @PostMapping("/omiseInProgess")
     public String test1(HttpServletRequest request,ModelMap model) throws ClientException, IOException, OmiseException {
         Client client = new Client("pkey_test_5dyabo9iygs2rte1srz", "skey_test_5dyabo9jig632rot8ac");
         String a = request.getParameter("description");
         long amount = (long) (Double.parseDouble(a) * 100);
-        String productId = request.getParameter("productId");
+      //  String productId = request.getParameter("productId");
         String totalprice = request.getParameter("total_price");
+        String productId = request.getParameter("product_Id");
+        String fullname = request.getParameter("full_name");
+        String userId = request.getParameter("userId");
+        String orderId = request.getParameter("orderId");
+        System.out.println(fullname);
+        //String user = request.getParameter("userId");
+        Users user = new Users();
+        user.setUserId(Long.parseLong(userId));
+        
+        Orders order = new Orders();
+        order.setOrderId(Long.parseLong(orderId));
+        
+        Products product = new Products();
+        product.setProductId(Long.parseLong(productId));
+        
+        System.out.println(user.getUserId());
+        System.out.println(totalprice);
+        System.out.println(orderId);
+        System.out.println(productId);
+        
         model.addAttribute("total_price", totalprice);
+        model.addAttribute("userDetail", userService.getById(user.getUserId()));
+        model.addAttribute("orderDetail", orderService.getById(order.getOrderId()));
+        model.addAttribute("productDetail", productService.getProductById(product.getProductId()));
         try {
             Charge charge = client.charges().create(new Charge.Create()
                     .amount(amount)
@@ -67,7 +91,7 @@ public class OrdersController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "omiseSuccess";
+        return "orders";
     }
     
     /*@GetMapping("/omiseSuccess")
@@ -92,7 +116,7 @@ public class OrdersController {
 //    }
     
     
-    @PostMapping("/payment")
+    @GetMapping("/payment")
     public String bill(ModelMap modelmap, HttpServletRequest request) {
 
         String fullname = request.getParameter("full_name");
@@ -107,7 +131,7 @@ public class OrdersController {
       char size = s.charAt(0);
         System.out.println(totalPrice);
         Users user = new Users();
-        user.setUserId(1);
+//        user.setUserId(1);
         user.setName(fullname);
         user.setEmail("test@hotmail.com");
         user.setPhoneNumber("1234567890");
@@ -117,7 +141,7 @@ public class OrdersController {
         System.out.println("save user successs test");
         
         Orders order = new Orders();
-        order.setOrderId(1);
+//        order.setOrderId(1);
         order.setQuantity(Integer.parseInt(quantity));
         order.setSize(size);
         order.setAddress(address);
@@ -134,6 +158,8 @@ public class OrdersController {
         modelmap.addAttribute("product_Id", ProductId);
         modelmap.addAttribute("quantity", quantity);
         modelmap.addAttribute("size", size);
+        modelmap.addAttribute("user", userService.getById(user.getUserId()));
+        modelmap.addAttribute("orderId", order.getOrderId());
 
         System.out.println("save order success test");
 

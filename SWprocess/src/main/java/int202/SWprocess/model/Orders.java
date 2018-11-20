@@ -30,7 +30,7 @@ import javax.validation.constraints.NotNull;
 public class Orders extends SerializableSerializer {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long orderId;
     
     @NotNull

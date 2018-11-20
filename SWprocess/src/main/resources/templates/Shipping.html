@@ -148,7 +148,7 @@
 
         <p id="p1"><b>Shipping</b></p>
 
-        <form th:action="@{/payment}" method ="POST">
+        <form th:action="@{/payment}" method ="get">
             <div>
                 <p id="p2"><b>Name</p>
                 <input type="text" id="info" name="full_name" placeholder="Your Name..." required="true">
@@ -157,7 +157,7 @@
                          <p id="p2">Email</p>
                     <input type="text" id="info" name="email" placeholder="Your Email..." required="true">
                           <p id="p2">Phone</p>
-                    <input type="text" id="info" name="email" placeholder="Your Phone..." required="true">
+                    <input type="text" id="info" name="phoneNumber" placeholder="Your Phone..." required="true">
                         </div>      
 
                         <hr>
@@ -184,6 +184,7 @@
                                                                    <input type="hidden" th:value="${shippingdetail.productId}" name="product_Id">
                                                                        <input type="hidden" name="size" th:value="${size}">
                                                                        <input type="hidden" name="quantity" th:value="${quantity}">
+                                                                           
                                                            
                                                                 <input type="submit" value="Continue" >
                                                                     

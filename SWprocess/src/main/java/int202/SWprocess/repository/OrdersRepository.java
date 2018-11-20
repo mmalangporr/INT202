@@ -18,7 +18,8 @@ import org.springframework.stereotype.Repository;
 public interface OrdersRepository extends JpaRepository<Orders, Long>{
 
         
-    public Orders findByOrderId(int orderId);
+    public Orders findByOrderId(long orderId);
+    
 }
     
 
