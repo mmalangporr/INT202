@@ -83,11 +83,10 @@ public class ProductController {
         model.addAttribute("shippingDetail", productService.getProductById(id));
         return "Shipping";
     }
-
-    @GetMapping("/payment/{id}")
-    public String shippingPayment(ModelMap model, @PathVariable("id") int id) {
-        model.addAttribute("shippingPayment", productService.getProductById(id));
-        return "payment";
-    }
-
+//
+//    @GetMapping("/payment/{id}")
+//    public String shippingPayment(ModelMap model, @PathVariable("id") int id) {
+//        model.addAttribute("shippingPayment", productService.getProductById(id));
+//        return "payment";
+//    }
 }
