@@ -4,7 +4,8 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmnls:th="http://thymeleaf.org">
     <head>
         <title>Orders</title>
         <meta charset="UTF-8">
@@ -19,7 +20,7 @@ and open the template in the editor.
             .left-column{
             	float: left;
             	margin-left: 200px;
-            	margin-top: 50px;
+            	margin-top: 40px;
             }
             .right-colomn{
             	float: left;
@@ -47,6 +48,9 @@ and open the template in the editor.
                 font-size: 20px;
                 margin-left: 72%;
             }
+            #order{
+                font-weight: normal;
+            }
         </style>
     </head>
     <body>
@@ -60,23 +64,20 @@ and open the template in the editor.
         <h2>Your Order</h2>
         <div class="contentOrders">
         	<div class="left-column" >
-                <img src="" width="250" height="200">
+                    <img th:src="${productDetail.productImage}" width="450" height="400">
             </div>
             <div class="container">
                 
             <div class="right-colomn">
-                <p th:text="${userDetail.name}">Name :</p>
-                <p th:text="${userDetail.phoneNumber}">Phone number:</p>
-                <p th:text="${userDetail.email}">Email :</p>
-                <p th:text="${userDetail.userName}">Address: </p>
-            	<p th:text="${productDetail.productName}">Product Name: </p>
-                <image th:src="${productDetail.productImage}"></image>
-            	<p th:text="${orderDetail.address}">Size: </p>
-            	<p th:text="${orderDetail.quantity}">Quantity: </p>
-        
+                <h3>Your name: <span id="order" th:text="${userDetail.name}"></span></h3>
+                <h3>Phone number: <span id="order" th:text="${userDetail.phoneNumber}"></span></h3>  
+                <h3>Address: <span id="order" th:text="${orderDetail.address}"></span></h3>
+                <h3>Product Name: <span id="order" th:text="${productDetail.productName}"></span></h3>
+                <h3>Size: <span id="order" th:text="${orderDetail.size}"></span></h3>
+                <h3>Quantity: <span id="order" th:text="${orderDetail.quantity}"></span></h3>
+                <input type="hidden" th:value="${userDetail.email}" />
              	<br>
-             	<br>
-             	<h3 th:text="${total_price}">Total Price: </h3>
+                <h3>Total Price: <span th:text="${total_price}"></span></h3>
              	<br>
                             </div>
     </div> 

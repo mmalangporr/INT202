@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmnls:th="http://thymeleaf.org">
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmnls:th="http://thymeleaf.org">
     <head>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-                <style>
-                    input[type=text] {
-                        width: 100%;
-                        box-sizing: border-box;
-                        border: 2px solid #ccc;
-                        border-radius: 4px;
-                        font-size: 16px;
-                        background-color: white;
-                        background-image: url('searchicon.png');
-                        background-position: 10px 10px; 
-                        background-repeat: no-repeat;
-                        padding: 12px 20px 12px 40px; 
-                    }
-                    a.search{
-                        font-family: Arial, Helvetica, sans-serif;
-                        font-size: 50pt;
-                        border-radius:25pt;
-
-                    }
-
-                    input[type=submit] {
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <style>
+            input[type=text] {
+                width: 100%;
+                box-sizing: border-box;
+                border: 2px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+                background-color: white;
+                background-image: url('searchicon.png');
+                background-position: 10px 10px; 
+                background-repeat: no-repeat;
+                padding: 12px 20px 12px 40px; 
+            }
+            a.search{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 50pt;
+                border-radius:25pt;
+            }
+            input[type=submit] {
                         width: 10%;
                         border: none;
                         outline: 0;
@@ -58,9 +52,7 @@
                     }
                 </style>
                 <title>Shalala payment</title>
-
                 </head>
-
                 <body>
                     <table style="width:100%">
                         <tr>
@@ -89,11 +81,11 @@
                                                 </div>
                                                 <img src="https://www.goonvpn.com/img/bank_support.png" style="margin-left: 280px" height="130" width="200">
                                                     </form>
-                                                        <br>
+                                                    <br>
                                                         <hr>
-                                                                <form class="checkout-form" name="checkoutForm" method="Post" th:action="@{/omiseInProgess}">
-                                                                        <h1 style="margin-left: 71%">Total : <span th:text="${total_price}"></span></h1>
-                                                                        <input type="hidden" name="description" th:value="${total_price}" >            
+                                                            <form class="checkout-form" name="checkoutForm" method="Post" th:action="@{/omiseInProgess}">
+                                                                <h1 style="margin-left: 71%">Total : <span th:text="${total_price}"></span></h1>
+                                                                <input type="hidden" name="description" th:value="${total_price}" >            
                                                                     <script type="text/javascript" src="https://cdn.omise.co/card.js"
                                                                             data-key="pkey_test_5dyabo9iygs2rte1srz"
                                                                             data-image="https://image.flaticon.com/icons/svg/1055/1055659.svg"
@@ -104,17 +96,17 @@
                                                                             data-currency="thb"
                                                                             >
                                                                     </script>
-                                                                            <input type="hidden" name="full_name" th:value="${full_name}" >  
-                                                                             <input type="hidden" name="userId" th:value="${user.userId}" >  
+                                                                    <input type="hidden" name="full_name" th:value="${full_name}" >  
+                                                                        <input type="hidden" name="userId" th:value="${user.userId}" >  
                                                                             <input type="hidden" name="size" th:value="${size}">
                                                                                 <input type="hidden" name="total_price" th:value="${total_price}" > 
-                                                                                <input type="hidden" name="orderId" th:value="${orderId}" >
-                                                                                <input type="hidden" name="product_Id" th:value="${product_Id}" > 
-                                                              \
-                                                                </form>
-                                                                <br>
-                                                                    <br>
-                                                                    
+                                                                                    <input type="hidden" name="orderId" th:value="${orderId}" >
+                                                                                        <input type="hidden" name="product_Id" th:value="${product_Id}" > 
+                                                                                            \
+                                                                                            </form>
+                                                                                            <br>
+                                                                                                <br>
 
-    </body>
-</html>
+
+                                                                                                    </body>
+                                                                                                    </html>
