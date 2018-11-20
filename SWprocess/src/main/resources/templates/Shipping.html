@@ -148,7 +148,7 @@
 
         <p id="p1"><b>Shipping</b></p>
 
-        <form th:action="@{/payment}" method ="get">
+        <form th:action="@{/payment}" method ="Post">
             <div>
                 <p id="p2"><b>Name</p>
                 <input type="text" id="info" name="full_name" placeholder="Your Name..." required="true">
@@ -164,9 +164,7 @@
 
                             <div th:each="shippingdetail : ${shippingDetail}" class="container">
                                 <p id="p2">Select Shipping Method</p></b>
-                                
-<!--                                    <input type="radio" name="payment" value="Kerry" checked>Kerry<br><br>
-                                                <input type="radio" name="payment" value="Local Post">Local Post-->
+                              
                                                     
                                                     <br>
                                                         <br>

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,7 @@ public class ProductController {
 
     @Autowired
     ProductService productService;
-    
+
     @Autowired
     ProductDetailService productDetailService;
 
@@ -65,28 +66,16 @@ public class ProductController {
         return "productdetail";
     }
 
-  /*  @RequestMapping("/Shipping")
-    public long shippingProduct(@RequestParam long productId) {
-        productService.getProductById(productId);
-        return productId;
-    }*/
-
-    @GetMapping("/Shipping")
-    public String shippingDetail(ModelMap model,HttpServletRequest request) {
+    @PostMapping("/Shipping")
+    public String shippingDetail(ModelMap model, HttpServletRequest request) {
         String productId = request.getParameter("productId");
         String size = request.getParameter("size");
         String quantity = request.getParameter("quantity");
         int id = Integer.parseInt(productId);
-        System.out.println(id+" testttttttttttttttttttttttttttrtt");
-        model.addAttribute("size",size);
-        model.addAttribute("quantity",quantity);
+        System.out.println(id + " testttttttttttttttttttttttttttrtt");
+        model.addAttribute("size", size);
+        model.addAttribute("quantity", quantity);
         model.addAttribute("shippingDetail", productService.getProductById(id));
         return "Shipping";
     }
-//
-//    @GetMapping("/payment/{id}")
-//    public String shippingPayment(ModelMap model, @PathVariable("id") int id) {
-//        model.addAttribute("shippingPayment", productService.getProductById(id));
-//        return "payment";
-//    }
 }

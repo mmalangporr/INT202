@@ -53,14 +53,13 @@ public class OrdersController {
         Client client = new Client("pkey_test_5dyabo9iygs2rte1srz", "skey_test_5dyabo9jig632rot8ac");
         String a = request.getParameter("description");
         long amount = (long) (Double.parseDouble(a) * 100);
-        //  String productId = request.getParameter("productId");
+
         String totalprice = request.getParameter("total_price");
         String productId = request.getParameter("product_Id");
         String fullname = request.getParameter("full_name");
         String userId = request.getParameter("userId");
         String orderId = request.getParameter("orderId");
-        System.out.println(fullname);
-        //String user = request.getParameter("userId");
+
         Users user = new Users();
         user.setUserId(Long.parseLong(userId));
 
@@ -69,11 +68,6 @@ public class OrdersController {
 
         Products product = new Products();
         product.setProductId(Long.parseLong(productId));
-
-        System.out.println(user.getUserId());
-        System.out.println(totalprice);
-        System.out.println(orderId);
-        System.out.println(product.getProductId());
 
         model.addAttribute("total_price", totalprice);
         model.addAttribute("userDetail", userService.getById(user.getUserId()));
@@ -92,26 +86,7 @@ public class OrdersController {
         return "orders";
     }
 
-    /*@GetMapping("/omiseSuccess")
-    public String omisePayment(ModelMap model,HttpServletRequest request) {
-        String productId = request.getParameter("productId");
-        String totalprice = request.getParameter("total_price");
-        int id = Integer.parseInt(productId);
-        System.out.println(id+" testttttttttttttttttttttttttttrtt");
-        model.addAttribute("total_price", totalprice);
-//        model.addAttribute("shippingDetail", productService.getProductById(id));
-        return "omiseSuccess";
-    }*/
-//    @RequestMapping("/paymentsize")
-//    public char productsize(@RequestParam char size){
-//        return size;
-//    }
-//    
-//    @RequestMapping("/paymentquantity")
-//    public int productquantity(@RequestParam int quantity){
-//        return quantity;
-//    }
-    @GetMapping("/payment")
+    @PostMapping("/payment")
     public String bill(ModelMap modelmap, HttpServletRequest request) {
 
         String fullname = request.getParameter("full_name");
@@ -123,19 +98,16 @@ public class OrdersController {
         String quantity = request.getParameter("quantity");
         String s = request.getParameter("size");
         char size = s.charAt(0);
-        System.out.println(totalPrice);
+
         Users user = new Users();
-//        user.setUserId(1);
         user.setName(fullname);
         user.setEmail(email);
         user.setPhoneNumber(phone);
         user.setPassword("1234");
         user.setUserName("Test");
         userService.save(user);
-        System.out.println("save user successs test");
 
         Orders order = new Orders();
-//        order.setOrderId(1);
         order.setQuantity(Integer.parseInt(quantity));
         order.setSize(size);
         order.setAddress(address);
@@ -154,8 +126,6 @@ public class OrdersController {
         modelmap.addAttribute("size", size);
         modelmap.addAttribute("user", userService.getById(user.getUserId()));
         modelmap.addAttribute("orderId", order.getOrderId());
-
-        System.out.println("save order success test");
 
         return "payment";
     }

@@ -23,24 +23,24 @@ import javax.validation.constraints.NotBlank;
  */
 @Entity
 @Table(name = "users")
-public class Users extends SerializableSerializer{
-    
+public class Users extends SerializableSerializer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
-    
+
     @NotBlank
     private String name;
-    
+
     @NotBlank
     private String userName;
-    
+
     @NotBlank
     private String email;
-    
+
     @NotBlank
     private String password;
-    
+
     @NotBlank
     private String phoneNumber;
 
@@ -96,6 +96,5 @@ public class Users extends SerializableSerializer{
     public String toString() {
         return "Users{" + "userId=" + userId + ", name=" + name + ", userName=" + userName + ", email=" + email + ", password=" + password + ", phoneNumber=" + phoneNumber + '}';
     }
-    
-    
+
 }

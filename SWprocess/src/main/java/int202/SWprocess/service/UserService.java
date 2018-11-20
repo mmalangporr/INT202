@@ -16,21 +16,21 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserService {
-    
+
     @Autowired
     private UsersRepository userRepo;
-    
-    public Users save(Users users){
+
+    public Users save(Users users) {
         return userRepo.save(users);
 
     }
-    
-    public Users getById(long userId){
+
+    public Users getById(long userId) {
         return userRepo.findByUserId(userId);
     }
-    public Users getByName(String name){
+
+    public Users getByName(String name) {
         return userRepo.findByName(name);
     }
-    
+
 }
-    

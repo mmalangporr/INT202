@@ -20,18 +20,20 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ProductDetailService {
-    
+
     @Autowired
     private ProductDetailRepository productDetailRepo;
-    
-    public List<ProductDetail> getProductDetail(Products productId){
+
+    public List<ProductDetail> getProductDetail(Products productId) {
+        
         List<ProductDetail> pd = productDetailRepo.findByProductId(productId);
         return pd;
     }
-    
-    public List<ProductDetail> getAllProducts(){
+
+    public List<ProductDetail> getAllProducts() {
+        
         List<ProductDetail> p = productDetailRepo.findAll();
         return p;
     }
-    
+
 }

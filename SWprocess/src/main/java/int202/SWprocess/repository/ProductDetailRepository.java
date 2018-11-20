@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package int202.SWprocess.repository;
+
 import int202.SWProcess.model.ProductDetail;
 import int202.SWProcess.model.Products;
 import java.util.ArrayList;
@@ -21,7 +22,8 @@ import org.springframework.stereotype.Repository;
  * @author taloey
  */
 @Repository
-public interface ProductDetailRepository extends JpaRepository<ProductDetail, Long>{
+public interface ProductDetailRepository extends JpaRepository<ProductDetail, Long> {
+
     public List<ProductDetail> findByProductId(Products productId);
 
 }

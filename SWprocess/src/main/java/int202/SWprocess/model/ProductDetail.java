@@ -27,10 +27,10 @@ public class ProductDetail extends SerializableSerializer {
     @Id
     private long productDetailId;
 
-    @OneToOne(fetch=FetchType.LAZY,optional=false)
-    @JoinColumn(name="product_id",nullable=false)
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "product_id", nullable = false)
     private Products productId;
-    
+
     @NotBlank
     private String productDetail;
 
@@ -62,6 +62,5 @@ public class ProductDetail extends SerializableSerializer {
     public String toString() {
         return "ProductDetail{" + "productDetailId=" + productDetailId + ", productId=" + productId + ", productDetail=" + productDetail + '}';
     }
-    
-    
+
 }

@@ -73,18 +73,12 @@ and open the template in the editor.
                 <image th:src="${productDetail.productImage}"></image>
             	<p th:text="${orderDetail.address}">Size: </p>
             	<p th:text="${orderDetail.quantity}">Quantity: </p>
-                <!--//<image th:src="${products.productImage}-->
+        
              	<br>
              	<br>
              	<h3 th:text="${total_price}">Total Price: </h3>
              	<br>
                             </div>
-<!--                 <div th:each="products : ${products}" class="container">
-    <div th:each="orderdetail : ${orderDetail}">
-        <p th:text="${orderdetail.orderId}"></p>
-        <p th:text="${orderdetail.size}"></p>
-        <p th:text="${orderdetail.address}"></p>
-        <p th:text="${orderdetail.totalPrice}"></p>-->
     </div> 
             </div>
 

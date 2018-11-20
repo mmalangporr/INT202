@@ -21,10 +21,12 @@ import org.springframework.stereotype.Repository;
  * @author Kittisak
  */
 @Repository
-public interface ProductRepository extends JpaRepository<Products, Long>{
+public interface ProductRepository extends JpaRepository<Products, Long> {
 
     public List<Products> findByProductId(long productId);
+
     public List<Products> findByProductNameLike(String productName);
+
     public Products findById(long productId);
-    
+
 }

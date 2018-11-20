@@ -32,24 +32,24 @@ public class Orders extends SerializableSerializer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long orderId;
-    
+
     @NotNull
     private int quantity;
-    
+
     @NotNull
     private char size;
-    
+
     @NotNull
     private double totalPrice;
 
-    @ManyToOne(fetch=FetchType.LAZY,optional=false)
-    @JoinColumn(name="product_id",nullable=false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "product_id", nullable = false)
     private Products productId;
-    
-    @ManyToOne(fetch=FetchType.LAZY,optional=false)
-    @JoinColumn(name="user_id",nullable=false)
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private Users UserId;
-      
+
     @NotBlank
     private String address;
 
@@ -109,12 +109,9 @@ public class Orders extends SerializableSerializer {
         this.address = address;
     }
 
-    
-    
     @Override
     public String toString() {
         return "Orders{" + "orderId=" + orderId + ", quantity=" + quantity + ", size=" + size + ", totalPrice=" + totalPrice + ", productId=" + productId + ", UserId=" + UserId + ", address=" + address + '}';
     }
-    
-    
+
 }

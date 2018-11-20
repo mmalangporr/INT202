@@ -66,16 +66,6 @@
                         <tr>
                             <th style="width: 5%"></th>
                             <td><a class="search"><b>Sha</b>lala</a></td>
-                          <!--  <th colspan="2">
-
-
-                                 <form action="get" th:action="@{/search}" th:object="${search}">
-                                    <input style="width: 70% ; margin-left: 20%; " type="text" name="search" id="search" placeholder="Search.."></input>
-                                    <th style="width: 50px">
-                                        <button class="iconn" type="submit" style="margin-left:0px;border-radius: 20% ;background-color: #F5F5F5; "><img src="https://image.flaticon.com/icons/svg/34/34202.svg"
-                                                                                                                                                         width="30" height="30" ></button>
-                                </form> 
-                            </th> -->
                     </table>
 
 
@@ -101,13 +91,6 @@
                                                     </form>
                                                         <br>
                                                         <hr>
- <!-- <input type="text" value="${full_name}">
- <input type="text" value="${address}">
- <input type="text" value="${payment}">
- <input type="text" value="${product_Id}">
- <input type="text" value="${size}">
- <input type="text" value="${quantity}">  -->
-                    
                                                                 <form class="checkout-form" name="checkoutForm" method="Post" th:action="@{/omiseInProgess}">
                                                                         <h1 style="margin-left: 71%">Total : <span th:text="${total_price}"></span></h1>
                                                                         <input type="hidden" name="description" th:value="${total_price}" >            
@@ -127,14 +110,11 @@
                                                                                 <input type="hidden" name="total_price" th:value="${total_price}" > 
                                                                                 <input type="hidden" name="orderId" th:value="${orderId}" >
                                                                                 <input type="hidden" name="product_Id" th:value="${product_Id}" > 
-                                                                                 
-                                                                              
-                                                                    <!--the script will render <input type="hidden" name="omiseToken"> for you automatically-->
+                                                              \
                                                                 </form>
                                                                 <br>
                                                                     <br>
-                                                                        <!-- Optional JavaScript -->
-                                                                        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                                                                    
 
     </body>
 </html>

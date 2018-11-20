@@ -19,61 +19,35 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ProductService {
-    
-    private Products[] cart;
-    private int itemCount;
-    private double totalPrice;
-    private int capacity;
-      
+
     @Autowired
     private ProductRepository productRepo;
 
-    
-    public List<Products> getAllProducts(){
+    public List<Products> getAllProducts() {
         List<Products> p = productRepo.findAll();
         return p;
     }
-    
-    public ProductService(){
-        capacity = 5;
-        cart = new Products[capacity];
-        itemCount = 0;
-        totalPrice = 0.0;
-    }
-    
-     public Products getById(long productId) {
+
+    public Products getById(long productId) {
         return productRepo.findById(productId);
     }
-    public List<Products> getProductById(long productId){
+
+    public List<Products> getProductById(long productId) {
         List<Products> p = productRepo.findByProductId(productId);
         return p;
     }
-    
-    public List<Products> getProductByName(String productName){
-        List<Products> p2 = productRepo.findByProductNameLike("%"+productName+"%");
+
+    public List<Products> getProductByName(String productName) {
+        List<Products> p2 = productRepo.findByProductNameLike("%" + productName + "%");
         return p2;
     }
-    
-    public List<Products> getAllSearch(String search){
-        try{
+
+    public List<Products> getAllSearch(String search) {
+        try {
             long id = Integer.parseInt(search);
             return getProductById(id);
-        }
-        catch(Exception ex){
+        } catch (Exception ex) {
             return getProductByName(search);
         }
     }
-        
-    private void increaseSizeCart(){
-        Products[] temp = new Products[capacity+3];
-        for(int i=0; i < capacity; i++){
-            temp[i] = cart[i];
-        }
-        cart = temp;
-        temp = null;
-        capacity = cart.length;
-    }
-        
-    
-
 }
