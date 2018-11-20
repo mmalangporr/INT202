@@ -101,10 +101,10 @@
                                                     </form>
                                                         <br>
                                                         <hr>
-
+<h1 style="margin-left: 71%">Total : <span th:text="${total_price}"></span></h1>
                                                                 <form class="checkout-form" name="checkoutForm" method="GET" th:action="@{/omiseInProgess}">
                                                                      <div th:each="shippingPayment : ${shippingPayment}" class="container">
-                                                                        <h1 style="margin-left: 71%">Total : <span th:text="${shippingPayment.productPrice}"></span></h1>
+                                                                        <h1 style="margin-left: 71%">Total : <span th:text="${total_price}"></span></h1>
                                                                         <input type="hidden" name="description" th:value="${shippingPayment.productPrice}" >
                                                                     </div>
                                                                     <script type="text/javascript" src="https://cdn.omise.co/card.js"
@@ -113,7 +113,7 @@
                                                                             data-frame-label="Shalala E-Commerce"
                                                                             data-button-label="Continue"
                                                                             data-submit-label="Submit"
-                                                                            data-amount="10025"
+                                                                            th:data-amount="${total_price}*100"
                                                                             data-currency="thb"
                                                                             >
                                                                     </script>

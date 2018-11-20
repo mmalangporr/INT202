@@ -67,15 +67,15 @@ public class OrdersController {
         return "omiseSuccess";
     }
     
-    @RequestMapping("/paymentsize")
-    public char productsize(@RequestParam char size){
-        return size;
-    }
-    
-    @RequestMapping("/paymentquantity")
-    public int productquantity(@RequestParam int quantity){
-        return quantity;
-    }
+//    @RequestMapping("/paymentsize")
+//    public char productsize(@RequestParam char size){
+//        return size;
+//    }
+//    
+//    @RequestMapping("/paymentquantity")
+//    public int productquantity(@RequestParam int quantity){
+//        return quantity;
+//    }
     
     
     @PostMapping("/payment")
@@ -86,11 +86,12 @@ public class OrdersController {
 //      String phone = request.getParameter("phone_number");   
         String address = request.getParameter("address");
         String totalPrice = request.getParameter("total_price");
+//        Double sentTotalprice = Double.parseDouble(totalPrice);
         String ProductId = request.getParameter("product_Id");
       String quantity = request.getParameter("quantity");
       String s = request.getParameter("size");
       char size = s.charAt(0);
-
+        System.out.println(totalPrice);
         Users user = new Users();
         user.setUserId(1);
         user.setName(fullname);
@@ -100,9 +101,9 @@ public class OrdersController {
         user.setUserName("Test");
         userService.save(user);
         System.out.println("save user successs test");
-
+        
         Orders order = new Orders();
-        order.setOrderId(3);
+        order.setOrderId(1);
         order.setQuantity(Integer.parseInt(quantity));
         order.setSize(size);
         order.setAddress(address);
@@ -112,10 +113,23 @@ public class OrdersController {
         p.setProductId(Long.parseLong(ProductId));
         order.setProductId(p);
         orderService.save(order);
+        
+        modelmap.addAttribute("total_price", totalPrice);
 
         System.out.println("save order success test");
 
-        return "Shipping";
+        return "payment";
+    }
+    
+       @GetMapping("/omiseSuccess")
+     public String omisePayment(ModelMap model,HttpServletRequest request) {
+        String productId = request.getParameter("productId");
+        String totalprice = request.getParameter("total_price");
+        int id = Integer.parseInt(productId);
+        System.out.println(id+" testttttttttttttttttttttttttttrtt");
+        model.addAttribute("total_price", totalprice);
+//        model.addAttribute("shippingDetail", productService.getProductById(id));
+        return "omiseSuccess";
     }
     
      @RequestMapping("/order")
@@ -133,3 +147,4 @@ public class OrdersController {
 
 
 }
+
