@@ -8,7 +8,6 @@ package int202.SWProcess.controller;
 import int202.SWProcess.model.Products;
 import int202.SWprocess.service.ProductDetailService;
 import int202.SWprocess.service.ProductService;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
@@ -33,7 +31,7 @@ public class ProductController {
     @Autowired
     ProductDetailService productDetailService;
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String getAllProduct(ModelMap model) {
         model.addAttribute("allProduct", productService.getAllProducts());
         return "index";

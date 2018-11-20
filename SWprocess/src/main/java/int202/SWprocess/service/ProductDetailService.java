@@ -8,9 +8,7 @@ package int202.SWprocess.service;
 import int202.SWProcess.model.ProductDetail;
 import int202.SWProcess.model.Products;
 import int202.SWprocess.repository.ProductDetailRepository;
-import java.util.ArrayList;
 import java.util.List;
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
