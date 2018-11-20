@@ -101,12 +101,16 @@
                                                     </form>
                                                         <br>
                                                         <hr>
-<h1 style="margin-left: 71%">Total : <span th:text="${total_price}"></span></h1>
+ <!-- <input type="text" value="${full_name}">
+ <input type="text" value="${address}">
+ <input type="text" value="${payment}">
+ <input type="text" value="${product_Id}">
+ <input type="text" value="${size}">
+ <input type="text" value="${quantity}">  -->
+                    
                                                                 <form class="checkout-form" name="checkoutForm" method="GET" th:action="@{/omiseInProgess}">
-                                                                     <div th:each="shippingPayment : ${shippingPayment}" class="container">
                                                                         <h1 style="margin-left: 71%">Total : <span th:text="${total_price}"></span></h1>
-                                                                        <input type="hidden" name="description" th:value="${shippingPayment.productPrice}" >
-                                                                    </div>
+                                                                        <input type="hidden" name="description" th:value="${total_price}" >            
                                                                     <script type="text/javascript" src="https://cdn.omise.co/card.js"
                                                                             data-key="pkey_test_5dyabo9iygs2rte1srz"
                                                                             data-image="https://image.flaticon.com/icons/svg/1055/1055659.svg"

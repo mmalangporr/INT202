@@ -50,10 +50,13 @@ public class OrdersController {
         return "orders";
     }
     @GetMapping("/omiseInProgess")
-    public String test1(HttpServletRequest request) throws ClientException, IOException, OmiseException {
+    public String test1(HttpServletRequest request,ModelMap model) throws ClientException, IOException, OmiseException {
         Client client = new Client("pkey_test_5dyabo9iygs2rte1srz", "skey_test_5dyabo9jig632rot8ac");
         String a = request.getParameter("description");
         long amount = (long) (Double.parseDouble(a) * 100);
+        String productId = request.getParameter("productId");
+        String totalprice = request.getParameter("total_price");
+        model.addAttribute("total_price", totalprice);
         try {
             Charge charge = client.charges().create(new Charge.Create()
                     .amount(amount)
@@ -66,6 +69,17 @@ public class OrdersController {
         }
         return "omiseSuccess";
     }
+    
+    /*@GetMapping("/omiseSuccess")
+    public String omisePayment(ModelMap model,HttpServletRequest request) {
+        String productId = request.getParameter("productId");
+        String totalprice = request.getParameter("total_price");
+        int id = Integer.parseInt(productId);
+        System.out.println(id+" testttttttttttttttttttttttttttrtt");
+        model.addAttribute("total_price", totalprice);
+//        model.addAttribute("shippingDetail", productService.getProductById(id));
+        return "omiseSuccess";
+    }*/
     
 //    @RequestMapping("/paymentsize")
 //    public char productsize(@RequestParam char size){
@@ -115,22 +129,18 @@ public class OrdersController {
         orderService.save(order);
         
         modelmap.addAttribute("total_price", totalPrice);
+        modelmap.addAttribute("full_name", fullname);
+        modelmap.addAttribute("address", address);
+        modelmap.addAttribute("product_Id", ProductId);
+        modelmap.addAttribute("quantity", quantity);
+        modelmap.addAttribute("size", size);
 
         System.out.println("save order success test");
 
         return "payment";
     }
     
-       @GetMapping("/omiseSuccess")
-     public String omisePayment(ModelMap model,HttpServletRequest request) {
-        String productId = request.getParameter("productId");
-        String totalprice = request.getParameter("total_price");
-        int id = Integer.parseInt(productId);
-        System.out.println(id+" testttttttttttttttttttttttttttrtt");
-        model.addAttribute("total_price", totalprice);
-//        model.addAttribute("shippingDetail", productService.getProductById(id));
-        return "omiseSuccess";
-    }
+       
     
      @RequestMapping("/order")
     public long getOrderDetail(@RequestParam int orderId) {

@@ -177,8 +177,8 @@
                                                                 <p id="item">Total : <span id="prodPrice" th:text="${shippingdetail.productPrice}*${quantity}" name="total"></span></p>
                                                                 <input type="hidden" th:value="${shippingdetail.productPrice}*${quantity}" name="total_price"/>
                                                                    <input type="hidden" th:value="${shippingdetail.productId}" name="product_Id">
-                                                                       <input  name="size" th:value="${size}">
-                                                                   <input name="quantity" th:value="${quantity}">
+                                                                       <input type="hidden" name="size" th:value="${size}">
+                                                                       <input type="hidden" name="quantity" th:value="${quantity}">
                                                            
                                                                 <input type="submit" value="Continue" >
                                                                     
