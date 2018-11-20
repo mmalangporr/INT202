@@ -43,19 +43,17 @@ public class OrdersController {
     @Autowired
     ProductService productService;
 
-    
-    
     @GetMapping("/orders")
-    public String getOrders(){
+    public String getOrders() {
         return "orders";
     }
-    
+
     @PostMapping("/omiseInProgess")
-    public String test1(HttpServletRequest request,ModelMap model) throws ClientException, IOException, OmiseException {
+    public String test1(HttpServletRequest request, ModelMap model) throws ClientException, IOException, OmiseException {
         Client client = new Client("pkey_test_5dyabo9iygs2rte1srz", "skey_test_5dyabo9jig632rot8ac");
         String a = request.getParameter("description");
         long amount = (long) (Double.parseDouble(a) * 100);
-      //  String productId = request.getParameter("productId");
+        //  String productId = request.getParameter("productId");
         String totalprice = request.getParameter("total_price");
         String productId = request.getParameter("product_Id");
         String fullname = request.getParameter("full_name");
@@ -65,22 +63,22 @@ public class OrdersController {
         //String user = request.getParameter("userId");
         Users user = new Users();
         user.setUserId(Long.parseLong(userId));
-        
+
         Orders order = new Orders();
         order.setOrderId(Long.parseLong(orderId));
-        
+
         Products product = new Products();
         product.setProductId(Long.parseLong(productId));
-        
+
         System.out.println(user.getUserId());
         System.out.println(totalprice);
         System.out.println(orderId);
-        System.out.println(productId);
-        
+        System.out.println(product.getProductId());
+
         model.addAttribute("total_price", totalprice);
         model.addAttribute("userDetail", userService.getById(user.getUserId()));
         model.addAttribute("orderDetail", orderService.getById(order.getOrderId()));
-        model.addAttribute("productDetail", productService.getProductById(product.getProductId()));
+        model.addAttribute("productDetail", productService.getById(product.getProductId()));
         try {
             Charge charge = client.charges().create(new Charge.Create()
                     .amount(amount)
@@ -93,7 +91,7 @@ public class OrdersController {
         }
         return "orders";
     }
-    
+
     /*@GetMapping("/omiseSuccess")
     public String omisePayment(ModelMap model,HttpServletRequest request) {
         String productId = request.getParameter("productId");
@@ -104,7 +102,6 @@ public class OrdersController {
 //        model.addAttribute("shippingDetail", productService.getProductById(id));
         return "omiseSuccess";
     }*/
-    
 //    @RequestMapping("/paymentsize")
 //    public char productsize(@RequestParam char size){
 //        return size;
@@ -114,32 +111,29 @@ public class OrdersController {
 //    public int productquantity(@RequestParam int quantity){
 //        return quantity;
 //    }
-    
-    
     @GetMapping("/payment")
     public String bill(ModelMap modelmap, HttpServletRequest request) {
 
         String fullname = request.getParameter("full_name");
-//      String email = request.getParameter("email");
-//      String phone = request.getParameter("phone_number");   
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone_number");
         String address = request.getParameter("address");
         String totalPrice = request.getParameter("total_price");
-//        Double sentTotalprice = Double.parseDouble(totalPrice);
         String ProductId = request.getParameter("product_Id");
-      String quantity = request.getParameter("quantity");
-      String s = request.getParameter("size");
-      char size = s.charAt(0);
+        String quantity = request.getParameter("quantity");
+        String s = request.getParameter("size");
+        char size = s.charAt(0);
         System.out.println(totalPrice);
         Users user = new Users();
 //        user.setUserId(1);
         user.setName(fullname);
-        user.setEmail("test@hotmail.com");
-        user.setPhoneNumber("1234567890");
+        user.setEmail(email);
+        user.setPhoneNumber(phone);
         user.setPassword("1234");
         user.setUserName("Test");
         userService.save(user);
         System.out.println("save user successs test");
-        
+
         Orders order = new Orders();
 //        order.setOrderId(1);
         order.setQuantity(Integer.parseInt(quantity));
@@ -151,7 +145,7 @@ public class OrdersController {
         p.setProductId(Long.parseLong(ProductId));
         order.setProductId(p);
         orderService.save(order);
-        
+
         modelmap.addAttribute("total_price", totalPrice);
         modelmap.addAttribute("full_name", fullname);
         modelmap.addAttribute("address", address);
@@ -165,15 +159,13 @@ public class OrdersController {
 
         return "payment";
     }
-    
-       
-    
-     @RequestMapping("/order")
+
+    @RequestMapping("/order")
     public long getOrderDetail(@RequestParam int orderId) {
         orderService.getById(orderId);
         return orderId;
     }
-    
+
     @GetMapping("/order/{id}")
     public String orderDetail(ModelMap model, @PathVariable("id") int id) {
         model.addAttribute("orderDetail", orderService.getById(id));
@@ -181,6 +173,4 @@ public class OrdersController {
         return "test";
     }
 
-
 }
-

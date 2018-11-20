@@ -41,7 +41,9 @@ public class ProductService {
         totalPrice = 0.0;
     }
     
-
+     public Products getById(long productId) {
+        return productRepo.findById(productId);
+    }
     public List<Products> getProductById(long productId){
         List<Products> p = productRepo.findByProductId(productId);
         return p;
